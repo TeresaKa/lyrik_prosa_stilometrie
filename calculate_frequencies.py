@@ -4,12 +4,41 @@ from collections import Counter
 
 import pandas as pd
 from scipy.stats import zscore
+import nltk
+from nltk.corpus import stopwords
+from sklearn.feature_extraction.text import CountVectorizer
+
+
+def stop_word_removal(x):
+    token = x.split()
+    return ' '.join([w for w in token if not w in german_stop_words])
+
+german_stop_words = stopwords.words('german')
+vect = CountVectorizer(stop_words = german_stop_words)
+
+
+df = pd.read_csv('Arent_raw/arent_anthologie_gedichte.csv')
+df['removedstopword']  = df['text'].apply(stop_word_removal)
+
+Liste = []
+count_vect = CountVectorizer()
+for i, row in df.iterrows():
+    count_vect.fit_transform(row.removedstopword.split())
+    titel = str(row.Autor)+'_'+str(row.Titel)
+    dic = count_vect.vocabulary_
+    frequencies = list(dic.values())
+    words = list(dic.keys())
+    Liste.append(pd.Series(frequencies, words, name=titel))
+
+docf = pd.DataFrame(Liste)
+docf = docf.fillna(0)
+docf = docf.div(docf.sum(axis=1), axis=0)
+print(docf)
 
 
 class Zscores:
-    def __init__(self, path, prefix):
+    def __init__(self, path):
         self.path = path
-        self.prefix = prefix
 
     def tokenize(self, lines, pattern=re.compile(r'\p{L}+')):
         """
@@ -40,19 +69,6 @@ class Zscores:
             freq.append(counts[c])
         return words, freq
 
-    def create_pd_series(self):
-        """
-        :param path: path to files
-        :param prefix: prefix to remove from filename for further use in Series
-        :return: list of pd.Series with words and wordcounts per file
-        """
-        freq_list = []
-        for file in glob.glob(self.path):
-            filename = file.replace(self.prefix, '')
-            counts = self.wordcounts_in_file(file)
-            words, freq = self.word2freq(counts)
-            freq_list.append(pd.Series(freq, words, name=filename))
-        return freq_list
 
     def create_dataframe(self, freqlist, mfw):
         """
@@ -74,22 +90,22 @@ class Zscores:
         return df, zscores
 
 
-def frequencies(path, prefix):
-    Z = Zscores(path, prefix)
+def frequencies(path):
+    Z = Zscores(path)
     series = Z.create_pd_series()
 
     mfw_values = [10, 50, 100, 500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
 
-    corpus = path.split('/')[2]
+    #corpus = path.split('/')[2]
 
     for mfw in mfw_values:
         freq, zscores = Z.create_dataframe(series, mfw)
-        zscores.to_hdf(str(mfw) + '_zscore_' + str(corpus) + '.h5', key='data', mode='w')
-        freq.to_hdf(str(mfw) + '_rel_freq_' + str(corpus) + '.h5', key='data', mode='w')
-
+        zscores.to_csv('zscores')
+        freq.to_csv('frequency')
+    print(zscores)
 
 if __name__ == "__main__":
-    path = 'dataset/refcor-master/German/*.txt'
-    prefix = 'dataset/refcor-master/German/'
+    path = df
+  #  prefix =
 
-    frequencies(path, prefix)
+    frequencies(path)
