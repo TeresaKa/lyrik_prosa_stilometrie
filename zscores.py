@@ -1,0 +1,56 @@
+import glob
+import regex as re
+from collections import Counter
+
+import pandas as pd
+
+from scipy.stats import zscore
+from scipy.spatial import distance
+
+import nltk
+from nltk.corpus import stopwords
+
+from sklearn.feature_extraction.text import CountVectorizer
+
+class Zscores():
+    def __init__(self, data):
+        self.data = data
+
+    def remove_stopwords(self):
+        german_stop_words = stopwords.words('german')
+        self.data['text'] = [str(i).lower() for i in self.data['text']]
+        self.data['removedstopword'] = self.data['text'].apply(lambda x: ' '.join([item for item in str(x).split() if item not in german_stop_words]))
+        return self.data
+
+    def count_frequencies(self, df):
+        freq_list = []
+        count_vect = CountVectorizer()
+        for i, row in df.iterrows():
+            count_vect.fit_transform(row.removedstopword.split())
+            title = str(row.Autor) + '_' + str(row.Titel)
+            vocab = count_vect.vocabulary_
+            frequencies = list(vocab.values())
+            words = list(vocab.keys())
+            freq_list.append(pd.Series(frequencies, words, name=title))
+        return freq_list
+
+    def calculate_zscores(self):
+        df = self.remove_stopwords()
+        freq_list = self.count_frequencies(df)
+
+        counts = pd.DataFrame(freq_list)
+        counts = counts.fillna(0)
+        counts = counts.div(counts.sum(axis=1), axis=0)
+        counts.loc['Total_per_word'] = counts.sum()
+        counts = counts.sort_values(by='Total_per_word', axis=1, ascending=False)
+        counts.drop('Total_per_word', inplace=True, axis=0)
+
+        zscores = counts.apply(zscore)
+        zscores.drop(zscores.columns[1000:], inplace=True, axis=1)
+        return zscores
+
+
+poems = pd.read_csv('anthologien_csv/arent_anthologie_gedichte.csv')
+z = Zscores(poems)
+zscores = z.calculate_zscores()
+zscores.to_csv('lyrik_zscores.csv')
