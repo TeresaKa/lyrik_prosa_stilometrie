@@ -16,10 +16,11 @@ class Delta:
         """ Calculates Manhattan, Cosine and Euclidean Delta measures and returns them as pd.Series """
         series_list = []
         for index, row in self.df.iterrows():
-            manhattan = distance.cityblock(row, self.df.loc[self.unknown])
+            # manhattan = distance.cityblock(row, self.df.loc[self.unknown])
+            print("row", row, "unknown",self.unknown)
             cosine = distance.cosine(row, self.df.loc[self.unknown])
-            euclidean = distance.euclidean(row, self.df.loc[self.unknown])
-            series_list.append(pd.Series([manhattan, cosine, euclidean, '?'], ['manhattan', 'cosine', 'euclidean', 'label'], name=index))
+            # euclidean = distance.euclidean(row, self.df.loc[self.unknown])
+            series_list.append(pd.Series([cosine, '?'], ['cosine', 'label'], name=index))
         return series_list
 
     def create_distance_df(self):
@@ -49,17 +50,19 @@ def delta_attribution(path, prefix):
     for file in glob.glob(path):
         filename = file.replace(prefix, '').replace(file[-3:], '')
         mfw = filename.split('_')[0]
-        corpus = filename.split('_')[2]
+        # corpus = filename.split('_')[2]
         print(file)
-        zscores = pd.read_hdf(file)
+        zscores = pd.read_csv(file)
         attribution = pd.DataFrame()
+        print(zscores)
         for u in zscores.index:
             attribution = pd.concat([attribution, Delta(zscores, u).assign_labels()])
-        attribution.to_hdf(str(mfw) + '_delta_' + str(corpus) + '.h5',  key='data', mode='w')
+        attribution.to_hdf(str(mfw) + '_delta_' + '.h5',  key='data', mode='w')
 
 
 if __name__ == "__main__":
-    path = 'results/German/zscores/*.h5'
-    prefix = 'results/German/zscores/'
+    path = '../results/zscores_lyrik.csv'
+    # path='../results/10_zscore_Chinese.h5'
+    prefix = 'results/'
 
     delta_attribution(path, prefix)

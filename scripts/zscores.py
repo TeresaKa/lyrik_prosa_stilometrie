@@ -50,7 +50,7 @@ class Zscores():
         return zscores
 
 
-poems = pd.read_csv('anthologien_csv/arent_anthologie_gedichte.csv')
+poems = pd.read_csv('../corpus/anthologien_csv/arent_anthologie_gedichte.csv')
 z = Zscores(poems)
 zscores = z.calculate_zscores()
-zscores.to_csv('lyrik_zscores.csv')
+zscores.to_csv('zscores_lyrik.csv')
