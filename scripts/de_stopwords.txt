@@ -879,6 +879,11 @@ bleibt
 "
 '
 »
+<<<<<<< HEAD:scripts/de_stopwords.txt
 «
 –
 uund
+=======
+»
+uund
+>>>>>>> 97c7b76c2e1aa47bd1a0622df315fa0803216a6f:de_stopwords.txt
