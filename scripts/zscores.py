@@ -26,9 +26,8 @@ class Zscores():
         freq_list = []
         count_vect = CountVectorizer()
         for i, row in df.iterrows():
-            count_vect.fit_transform(row.removedstopword.split())
             title = str(row.Autor) + '_' + str(row.Titel)
-            vocab = count_vect.vocabulary_
+            vocab = Counter(row.removedstopword.split())
             frequencies = list(vocab.values())
             words = list(vocab.keys())
             freq_list.append(pd.Series(frequencies, words, name=title))
