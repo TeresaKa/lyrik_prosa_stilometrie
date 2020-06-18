@@ -4,11 +4,13 @@ import glob
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
-
-import spacy
-import de_core_news_md
-from spacy.lemmatizer import Lemmatizer
-nlp = de_core_news_md.load()
+# import treetaggerwrapper
+# # from treetagger import TreeTagger
+# import pprint
+# import spacy
+# import de_core_news_md
+# from spacy.lemmatizer import Lemmatizer
+# nlp = de_core_news_md.load()
 
 ### Löst Anführungszeichen von Wörtern, damit sie einzeln betrachtet werden können
 def replace(string, ffilter):
@@ -68,6 +70,12 @@ def lemma(path):
 p = '../corpus/German_prosa/prosa/'
 # print("text", lemma(p))
 
+# tokenized_sent = "In großer Erregung umstehen Bauersleute, Knechte und Mägde das Gehöft des Servaz Amareller, Bauers im Hemmernmoos, und besprechen den unerhörten Fall eines großen Gelddiebstahles"
+# tagger = treetaggerwrapper.TreeTagger(TAGLANG='de')
+# tags = tagger.tag_text(tokenized_sent, tagonly=True)
+# pprint.pprint(tags)
+
+
 def concat_corpus():
     ''' Fügt alle txt-Datein zu einer Großen zusammen '''
     read_files = glob.glob("../corpus/German_prosa/lemma/*.txt") #Arent/lemma/*.txt")
@@ -83,17 +91,7 @@ def concat_corpus():
 # korpus_vorbereitung()
 
 
-def mfw(path):
-    ''' zählt Wordhäufigkeiten pro Segment '''
-    freq_list = []
-    for text in os.listdir(path):
-        t = open(path + '/' + text, 'r')
-        f = t.read()
-        title = text.split('/')[0]
-        c = Counter(f.split())
-        sort_vocab = {k: v for k, v in sorted(c.items(), key=lambda item: item[1],reverse=True)}
-        print(sort_vocab)
-        # set(a) & set(b)
+
     #     frequencies = list(vocab.values())
     #     words = list(vocab.keys())
     #     freq_list.append(pd.Series(frequencies, words, name=title))
@@ -104,20 +102,18 @@ def mfw(path):
     # # counts.loc['Total_per_word'] = counts.sum()
     # counts = counts.sort_values(by=['corpus_Arent.txt', 'corpus_German_prosa.txt'], axis=1, ascending=False)
     # counts.drop('Total_per_word', inplace=True, axis=0)
-    return
-# print(mfw('corpora'))
 
 
 # file = open('../corpus/Arent/corpus_Arent_raw.txt', 'r', encoding='utf-8')
-file = open('corpora/corpus_German_prosa.txt','r', encoding='utf-8')
-data = file.read().casefold()
-#
-# charFilter = ",.!;:—?-_(){}[]/\\"
-#
-#
-# data = replace(data, charFilter)
-# print(data.split())
-segment(data.split(), 100)
+# file = open('corpora/corpus_German_prosa.txt','r', encoding='utf-8')
+# data = file.read().casefold()
+# #
+# # charFilter = ",.!;:—?-_(){}[]/\\"
+# #
+# #
+# # data = replace(data, charFilter)
+# # print(data.split())
+# segment(data.split(), 100)
 
 
 
