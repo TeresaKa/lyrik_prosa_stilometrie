@@ -1,9 +1,5 @@
-import pandas as pd
-import os
-import glob
 import csv
 import os
-from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 
 def mfw(path):
@@ -20,9 +16,11 @@ def mfw(path):
         words.append(list(sort_vocab.keys())[:1000])
     return words
 
+
 def mfw_only_duplicates(list):
     dupl = set(list[0]) & set(list[1])
     return dupl
+
 
 def drop_duplicates(list):
     mfw = list[0] + list[1]
@@ -35,7 +33,7 @@ def drop_duplicates(list):
 
 ### erkennt direkte Rede in den Dokumenten und rechnet die relative Häufigkeit 'aus'
 def count_merkmale(Partition, merkmal):
-    ''' zählt nur ob eines der Merkmale in merkmal in Segment vorkommt'''
+    ''' zählt nur, ob irgendeines der Merkmale in merkmal in Segment vorkommt ungeachtet der Häufigkeit'''
     häufigkeitSegment = 0
     anzahl = 0
     for text in os.listdir(Partition):
@@ -87,8 +85,8 @@ def zeta(anteilZ, anteilV):
     return zeta
 
 def save_zeta(pfadV, pfadZ, merkmal, filename):
-    lyrik = zeta_per_word(pfadV, merkmal)
-    prosa = zeta_per_word(pfadZ, merkmal)
+    lyrik = zeta_per_word(pfadZ, merkmal)
+    prosa = zeta_per_word(pfadV, merkmal)
     zetas = {}
     for wort in merkmal:
         zetas[wort] = zeta(lyrik[wort], prosa[wort])
@@ -100,18 +98,42 @@ def save_zeta(pfadV, pfadZ, merkmal, filename):
 
 # ### Ziel
 
-mfw = mfw('corpora')
+mfw = mfw('../corpus/corpora_gesamt/')
 ohne_dupl = drop_duplicates(mfw)
 nur_dupl = mfw_only_duplicates(mfw)
-emotion = ['liebreich','angst', 'ängstlich', 'trauer', 'traurig', 'zornig', 'zorn', 'verachtungsvoll', 'verachtung', 'schuld', 'schuldig', 'liebe',  'geliebt', 'liebevoll', 'stolz', 'scham', 'schämen', 'überrasschung', 'überrascht', 'sorge', 'sorgenvoll', 'ekel', 'ekeln', 'angeekelt', 'neid', 'neidisch', 'neidvoll', 'glücklich', 'glück', 'freude', 'freudig', 'freuen', 'erleichterung', 'erleichtert', 'vergnügt', 'vergnügen', 'zufrieden', 'zufriedenheit', 'verzweiflung', 'verzweifelt', 'verlegenheit', 'verlegen', 'aufregung', 'aufgeregt', 'aufregen', 'spannung', 'gespannt', 'erregung', 'erregt', 'hoffen', 'hoffnung', 'befriedigt', 'langweilig', 'langeweile', 'mitgefühl', 'mitfühlen', 'enttäuscht', 'enttäuschung', 'frust', 'frustriert', 'eifersucht', 'eifersüchtig', 'wut', 'wütend', 'reue', 'schock', 'schockiert', 'zuneigung', 'verärgert', 'verärgerung', 'erwartungsvoll', 'erwartung', 'vorfreude', 'scheu', 'gelassen', 'gelassenheit', 'mut', 'mutig', 'neugierde', 'neugierig', 'depression', 'depressiv', 'niedergeschlagenheit', 'niedergeschlagen', 'lustvoll', 'lust', 'rausch', 'einfühlend', 'einfühlsam', 'euphorisch', 'euphorie', 'dankbarkeit', 'dankbar', 'hass', 'entsetzt', 'entsetzen', 'demütigung', 'demütig', 'demut', 'interesse', 'interessiert', 'einsamkeit', 'einsam', 'empörung', 'empört', 'vertrauen', 'qualvoll', 'qual', 'gleichgültigkeit', 'gleichgültig', 'fröhlichkeit', 'fröhlich', 'schadenfroh', 'schadenfreude', 'schmerz', 'melancholie', 'melancholisch', 'panik', 'panisch']
+emotion = ['liebreich','angst', 'ängstlich', 'trauer', 'traurig', 'zornig', 'zorn', 'verachtungsvoll', 'verachtung',
+           'schuld', 'schuldig', 'liebe',  'geliebt', 'liebevoll', 'stolz', 'scham', 'schämen', 'überrasschung',
+           'überrascht', 'sorge', 'sorgenvoll', 'ekel', 'ekeln', 'angeekelt', 'neid', 'neidisch', 'neidvoll',
+           'glücklich', 'glück', 'freude', 'freudig', 'freuen', 'erleichterung', 'erleichtert', 'vergnügt', 'vergnügen',
+           'zufrieden', 'zufriedenheit', 'verzweiflung', 'verzweifelt', 'verlegenheit', 'verlegen', 'aufregung',
+           'aufgeregt', 'aufregen', 'spannung', 'gespannt', 'erregung', 'erregt', 'hoffen', 'hoffnung', 'befriedigt',
+           'langweilig', 'langeweile', 'mitgefühl', 'mitfühlen', 'enttäuscht', 'enttäuschung', 'frust', 'frustriert',
+           'eifersucht', 'eifersüchtig', 'wut', 'wütend', 'reue', 'schock', 'schockiert', 'zuneigung', 'verärgert',
+           'verärgerung', 'erwartungsvoll', 'erwartung', 'vorfreude', 'scheu', 'gelassen', 'gelassenheit', 'mut',
+           'mutig', 'neugierde', 'neugierig', 'depression', 'depressiv', 'niedergeschlagenheit', 'niedergeschlagen',
+           'lustvoll', 'lust', 'rausch', 'einfühlend', 'einfühlsam', 'euphorisch', 'euphorie', 'dankbarkeit', 'dankbar',
+           'hass', 'entsetzt', 'entsetzen', 'demütigung', 'demütig', 'demut', 'interesse', 'interessiert', 'einsamkeit',
+           'einsam', 'empörung', 'empört', 'vertrauen', 'qualvoll', 'qual', 'gleichgültigkeit', 'gleichgültig',
+           'fröhlichkeit', 'fröhlich', 'schadenfroh', 'schadenfreude', 'schmerz', 'melancholie', 'melancholisch',
+           'panik', 'panisch']
 nomen = ['freude','vertrauen', 'angst','überraschung', 'trauer', 'ekel', 'wut', 'mitgefühl', 'liebe']
 anf = ['\"', '»', '«']
+instanz_epik = ['er', 'sie']
+instanz_lyrik = ['ich']
+sprechmarker = ['sagen', 'sprechen', 'fragen', 'antworten', 'schreien', 'jammern']
+# POS = ['JJ', 'VBZ', 'NN']
 
-pfad = ['segmentelyrik', 'segmenteepik']
-pfadZ = 'segmentelyrik'
-pfadV = 'segmenteepik'
 
-save_zeta(pfadV, pfadZ, anf, 'anf_100')
+merkmal = {'emotion': emotion, 'nomen': nomen, 'anf': anf, 'instanz_epik': instanz_epik, 'instanz_lyrik': instanz_lyrik,
+           'sprechmarker': sprechmarker, 'ohne_dupl': ohne_dupl, 'nur_dupl': nur_dupl}
+segmentcount = ['100', '500', '1000']
+for k,v in merkmal.items():
+    for c in segmentcount:
+        pfadZ = '../corpus/segmente/segmentelyrik_' + c
+        pfadV = '../corpus/segmente/segmenteepik_' + c
+
+        save_zeta(pfadV, pfadZ, v, '../results/zeta/' + k + '_' + c)
+
 
 ### Zeta - Aufbau
 
