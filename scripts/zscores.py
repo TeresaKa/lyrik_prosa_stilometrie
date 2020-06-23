@@ -17,14 +17,15 @@ class Zscores():
         self.data = data
 
     def remove_stopwords(self):
-        german_stop_words = stopwords.words('german')
+        stopword = open("de_stopwords.txt")
+        stopwords = stopword.read()
         self.data['text'] = [str(i).lower() for i in self.data['text']]
-        self.data['removedstopword'] = self.data['text'].apply(lambda x: ' '.join([item for item in str(x).split() if item not in german_stop_words]))
+        self.data['removedstopword'] = self.data['text'].apply(lambda x: ' '.join([item for item in str(x).split() if item not in stopwords]))
         return self.data
+
 
     def count_frequencies(self, df):
         freq_list = []
-        count_vect = CountVectorizer()
         for i, row in df.iterrows():
             title = str(row.Autor) + '_' + str(row.Titel)
             vocab = Counter(row.removedstopword.split())
@@ -49,7 +50,7 @@ class Zscores():
         return zscores
 
 
-poems = pd.read_csv('../corpus/anthologien_csv/arent_anthologie_gedichte.csv')
+poems = pd.read_csv('../corpus/lyrik/lyrik.csv')
 z = Zscores(poems)
 zscores = z.calculate_zscores()
-zscores.to_csv('zscores_lyrik.csv')
+zscores.to_csv('../results/delta/zscores_lyrik.csv')

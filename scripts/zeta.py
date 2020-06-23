@@ -121,11 +121,47 @@ anf = ['\"', '»', '«']
 instanz_epik = ['er', 'sie']
 instanz_lyrik = ['ich']
 sprechmarker = ['sagen', 'sprechen', 'fragen', 'antworten', 'schreien', 'jammern']
+sprechmarker_lang = ['abfertigen', 'abhören','ablehnen','abraten','abschlagen','abschweifen','absprechen','abstreiten',
+                     'andeuten','anerkennen', 'anfechten','angeben','angreifen','ankünden','anraten','anschneiden',
+                     'antworten','anvertrauen','anweisen','artikulieren','aufmuntern','aufschneiden','auftischen',
+                     'aufzeigen','ausdrücken','Ausflüchte machen','ausforschen','ausfragen','ausführen','aushorchen',
+                     'ausplaudern','ausquetschen','aussagen', 'äußern', 'sich aussprechen','austrommeln','ausweichen',
+                     'bedanken', 'bedeuten', 'befehlen','befragen','befürchten','begründen','beharren auf','behaupten',
+                     'beichten','bejahen', 'bekennen', 'beklagen', 'bekräftigen', 'bekunden', 'beleuchten', 'bemänteln',
+                     'bemerken', 'berichten', 'berichtigen', 'beruhigen', 'besagen', 'Bescheid geben', 'beschönigen',
+                     'beschreiben','beschwören','bestätigen','bestehen auf','bestimmen','bestreiten','beten','beteuern',
+                     'betonen','betteln','beweisen','bezeichnen','bezeugen','bitten','brabbeln','bramarbasieren',
+                     'breittreten','brüllen','brummen','dabei bleiben','daherreden','darlegen','dartun','definieren',
+                     'dementieren','demonstrieren', 'den Mund vollnehmen','deuteln','dick auftragen','dazwischenfahren',
+                     'drohen', 'ein Ohr abkauen','einräumen','einreden','einschärfen','einwenden','einwilligen','empfehlen',
+                     'entgegenhalten','entgegnen','enthüllen','entkräften','entschuldigen','erdichten','erfinden',
+                     'ergänzen','erinnern','erklären','erkundigen', 'ermahnen','ermuntern','ermutigen','erörtern','erschließen',
+                     'erwähnen','erweisen', 'erwidern','erzählen','evident machen','fabulieren','faseln','feststellen',
+                     'flehen','flunkern','flüstern','folgern','fordern','fragen', 'geheim halten','geltend machen',
+                     'gestehen','glauben','herausposaunen','herausreden', 'herausschreien','herumkritteln','hervorheben',
+                     'hindeuten','hinweisen','hinzufügen','höhnen','in Abrede stellen','in Frage stellen','ins Gesicht sagen',
+                     'jammern','keuchen','klagen','klatschen','klöhnen','konstatieren','krächzen','kritisieren','kundgeben',
+                     'kundtun','labern','lächeln','lachen','lallen','leugnen','lispeln','loben','mahnen','meinen','mitteilen',
+                     'munkeln','murmeln','nachfragen','nachweisen','näseln','negieren','nennen','nicht wahr haben wollen',
+                     'nuscheln','offenbaren','palavern','petzen','plaudern','plauschen','prahlen','quasseln','quatschen',
+                     'raten','ratschen','raunen','Rede und Antwort stehen','reden wie ein Buch','reden wie ein Wasserfall',
+                     'reinen Wein einschenken','röcheln','rufen','sabbeln','salbadern','schildern','schleimen','schließen',
+                     'schluchzen','schmeicheln','schnacken','schnarren','schnattern','schreien','schwadronieren','schwatzen',
+                     'schwätzen','schwören','seiern','sich verhaspeln','skizzieren','sondieren','sprechen','stammeln',
+                     'stottern','tadeln','tratschen','trösten','tuscheln','überinterpretieren','überreden','übertreiben',
+                     'überzeugen','umreißen','umschreiben','unken','Unsinn verzapfen','unterhalten','unterstreichen',
+                     'unterstützen','veranschaulichen','verbürgen','verdrehen','verfälschen','verhören','verklickern',
+                     'verkünden','verlangen','verlautbaren','verleugnen','vernehmen','verneinen','verraten','verschleiern',
+                     'versichern','versprechen','vertiefen','verwerfen','verzerren','vorbringen','vorenthalten','vorgeben','warnen',
+                     'weit ausholen','widerlegen','widerrufen','widersprechen','wiederholen','wissen wollen','zeigen',
+                     'zitieren','zu bedenken geben','zugeben','zugestehen','zum Besten geben','zureden','zurücknehmen',
+                     'zurufen','zustimmen']
 # POS = ['JJ', 'VBZ', 'NN']
 
 
-merkmal = {'emotion': emotion, 'nomen': nomen, 'anf': anf, 'instanz_epik': instanz_epik, 'instanz_lyrik': instanz_lyrik,
-           'sprechmarker': sprechmarker, 'ohne_dupl': ohne_dupl, 'nur_dupl': nur_dupl}
+# merkmal = {'emotion': emotion, 'nomen': nomen, 'anf': anf, 'instanz_epik': instanz_epik, 'instanz_lyrik': instanz_lyrik,
+#            'sprechmarker': sprechmarker, 'sprechmarker_lang':sprechmarker_lang, 'ohne_dupl': ohne_dupl, 'nur_dupl': nur_dupl}
+merkmal = {'sprechmarker_lang':sprechmarker_lang}
 segmentcount = ['100', '500', '1000']
 for k,v in merkmal.items():
     for c in segmentcount:

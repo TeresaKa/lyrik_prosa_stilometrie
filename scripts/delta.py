@@ -1,5 +1,6 @@
 import glob
 import pandas as pd
+import numpy as np
 from scipy.spatial import distance
 
 
@@ -16,11 +17,10 @@ class Delta:
         """ Calculates Manhattan, Cosine and Euclidean Delta measures and returns them as pd.Series """
         series_list = []
         for index, row in self.df.iterrows():
-            # manhattan = distance.cityblock(row, self.df.loc[self.unknown])
-            print("row", row, "unknown",self.unknown)
+            manhattan = distance.cityblock(row, self.df.loc[self.unknown])
             cosine = distance.cosine(row, self.df.loc[self.unknown])
-            # euclidean = distance.euclidean(row, self.df.loc[self.unknown])
-            series_list.append(pd.Series([cosine, '?'], ['cosine', 'label'], name=index))
+            euclidean = distance.euclidean(row, self.df.loc[self.unknown])
+            series_list.append(pd.Series([manhattan,cosine, euclidean,'?'], ['manhattan','cosine','euclidean', 'label'], name=index))
         return series_list
 
     def create_distance_df(self):
@@ -36,10 +36,13 @@ class Delta:
         Assigns labels: 'same' if authors match, 'different' otherwise. """
         delta = self.create_distance_df()
         delta.name = self.unknown
+        delta['genres'] = '0'
         for i, row in delta.iterrows():
-            author = i.split(',')[0]
-            delta.loc[i, 'author'] = author
-            if delta.author[0] == delta.author[i]:
+            genre = i.split('_')[0]
+            delta.loc[i, 'genres'] = str(genre)
+            if type(delta.genres[i]) != str:
+                print(i, delta.genres[i])
+            if delta.genres[0] == delta.genres[i]:
                 delta.loc[i, 'label'] = 'same'
             else:
                 delta.loc[i, 'label'] = 'different'
@@ -48,21 +51,17 @@ class Delta:
 
 def delta_attribution(path, prefix):
     for file in glob.glob(path):
-        filename = file.replace(prefix, '').replace(file[-3:], '')
-        mfw = filename.split('_')[0]
-        # corpus = filename.split('_')[2]
-        print(file)
-        zscores = pd.read_csv(file)
+        filename = file.replace(prefix, '').replace(file[-4:], '')
+        zscores = pd.read_csv(file,  index_col=[0])
         attribution = pd.DataFrame()
-        print(zscores)
         for u in zscores.index:
             attribution = pd.concat([attribution, Delta(zscores, u).assign_labels()])
-        attribution.to_hdf(str(mfw) + '_delta_' + '.h5',  key='data', mode='w')
+        print(attribution)
+        attribution.to_hdf('../results/delta/delta_results.h5',  key='data', mode='w')
 
 
 if __name__ == "__main__":
-    path = '../results/zscores_lyrik.csv'
-    # path='../results/10_zscore_Chinese.h5'
-    prefix = 'results/'
+    path = '../results/delta/zscores_alle.csv'
+    prefix = '../results/delta/'
 
     delta_attribution(path, prefix)

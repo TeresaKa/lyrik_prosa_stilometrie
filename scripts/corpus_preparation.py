@@ -86,5 +86,5 @@ def segment(wordList, n, outpath):
 
 out = '../corpus/segmente/segmenteepik_100/epik_Segment'
 words = open('../corpus/corpora_gesamt/corpus_epik.txt', 'r')
-wordList = words.read()
-segment(wordList.split(), 100, out)
+# wordList = words.read()
+# segment(wordList.split(), 100, out)
