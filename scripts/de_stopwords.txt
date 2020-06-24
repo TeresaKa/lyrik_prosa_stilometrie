@@ -153,7 +153,6 @@ dritte
 dritten
 dritter
 drittes
-du
 durch
 durchaus
 dürfen
@@ -192,14 +191,12 @@ ende
 endlich
 entweder
 entweder
-er
 Ernst
 erst
 erste
 ersten
 erster
 erstes
-es
 etwa
 etwas
 euch
@@ -275,11 +272,9 @@ hin
 hinter
 hoch
 i
-ich
 ihm
 ihn
 ihnen
-ihr
 ihre
 ihrem
 ihren
@@ -572,7 +567,6 @@ wie
 wieder
 will
 willst
-wir
 wird
 wirklich
 wirst

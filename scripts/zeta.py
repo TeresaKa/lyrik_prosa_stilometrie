@@ -35,13 +35,13 @@ def drop_duplicates(list):
 def count_merkmale(Partition, merkmal):
     ''' zählt nur, ob irgendeines der Merkmale in merkmal in Segment vorkommt ungeachtet der Häufigkeit'''
     häufigkeitSegment = 0
-    anzahl = 0
+    list = os.listdir(Partition)  # dir is your directory path
+    anzahl = len(list)
     for text in os.listdir(Partition):
         startIndex = 0
         t = open(Partition + "/" + text, "r")
         f = t.read()
         if text.endswith(".txt"):
-            anzahl += 1
             for e in merkmal:
                 if e in f:
                     startIndex+=1
@@ -58,16 +58,20 @@ def count_merkmale(Partition, merkmal):
 
 def zeta_per_word(Partition, merkmal):
     ''' zählt für jedes Merkmal in merkmal, ob es im Segment vorkommt '''
-    häufigkeitSegment = 0
-    anzahl = 0
+    # anzahl = 0
     dic = {}
+
+    list = os.listdir(Partition)  # dir is your directory path
+    anzahl = len(list)
+
     for wort in merkmal:
+        häufigkeitSegment = 0
         for text in os.listdir(Partition):
             startIndex = 0
             t = open(Partition + "/" + text, "r")
             f = t.read()
             if text.endswith(".txt"):
-                anzahl += 1
+                # anzahl += 1
                 if wort in f:
                     startIndex+=1
                     #startIndex =+ f.count(e) #'\"')
@@ -87,14 +91,23 @@ def zeta(anteilZ, anteilV):
 def save_zeta(pfadV, pfadZ, merkmal, filename):
     lyrik = zeta_per_word(pfadZ, merkmal)
     prosa = zeta_per_word(pfadV, merkmal)
+
+    lyrik_count = count_merkmale(pfadZ, merkmal)
+    prosa_count = count_merkmale(pfadV, merkmal)
     zetas = {}
     for wort in merkmal:
         zetas[wort] = zeta(lyrik[wort], prosa[wort])
 
-    w = csv.writer(open(filename+".csv", "w"))
+    zetas_count = []
+    zetas_count.append(zeta(lyrik_count, prosa_count))
+
+    w = csv.writer(open(filename+"pro_wort.csv", "w"))
     for key, val in zetas.items():
         w.writerow([key, val])
-    return zetas
+
+    f = csv.writer(open(filename + "pro_merkmal.csv", "w"))
+    f.writerow(zetas_count)
+    return zetas, zetas_count
 
 # ### Ziel
 
@@ -115,11 +128,10 @@ emotion = ['liebreich','angst', 'ängstlich', 'trauer', 'traurig', 'zornig', 'zo
            'hass', 'entsetzt', 'entsetzen', 'demütigung', 'demütig', 'demut', 'interesse', 'interessiert', 'einsamkeit',
            'einsam', 'empörung', 'empört', 'vertrauen', 'qualvoll', 'qual', 'gleichgültigkeit', 'gleichgültig',
            'fröhlichkeit', 'fröhlich', 'schadenfroh', 'schadenfreude', 'schmerz', 'melancholie', 'melancholisch',
-           'panik', 'panisch']
+           'panik', 'panisch', 'fühlen', 'herz', 'seele']
 nomen = ['freude','vertrauen', 'angst','überraschung', 'trauer', 'ekel', 'wut', 'mitgefühl', 'liebe']
 anf = ['\"', '»', '«']
-instanz_epik = ['er', 'sie']
-instanz_lyrik = ['ich']
+instanz = ['er', 'sie', 'es', 'du', 'ich', 'wir', 'ihr']
 sprechmarker = ['sagen', 'sprechen', 'fragen', 'antworten', 'schreien', 'jammern']
 sprechmarker_lang = ['abfertigen', 'abhören','ablehnen','abraten','abschlagen','abschweifen','absprechen','abstreiten',
                      'andeuten','anerkennen', 'anfechten','angeben','angreifen','ankünden','anraten','anschneiden',
@@ -145,7 +157,7 @@ sprechmarker_lang = ['abfertigen', 'abhören','ablehnen','abraten','abschlagen',
                      'munkeln','murmeln','nachfragen','nachweisen','näseln','negieren','nennen','nicht wahr haben wollen',
                      'nuscheln','offenbaren','palavern','petzen','plaudern','plauschen','prahlen','quasseln','quatschen',
                      'raten','ratschen','raunen','Rede und Antwort stehen','reden wie ein Buch','reden wie ein Wasserfall',
-                     'reinen Wein einschenken','röcheln','rufen','sabbeln','salbadern','schildern','schleimen','schließen',
+                     'reinen Wein einschenken','röcheln','rufen','sabbeln','sagen','salbadern','schildern','schleimen','schließen',
                      'schluchzen','schmeicheln','schnacken','schnarren','schnattern','schreien','schwadronieren','schwatzen',
                      'schwätzen','schwören','seiern','sich verhaspeln','skizzieren','sondieren','sprechen','stammeln',
                      'stottern','tadeln','tratschen','trösten','tuscheln','überinterpretieren','überreden','übertreiben',
@@ -159,9 +171,9 @@ sprechmarker_lang = ['abfertigen', 'abhören','ablehnen','abraten','abschlagen',
 # POS = ['JJ', 'VBZ', 'NN']
 
 
-# merkmal = {'emotion': emotion, 'nomen': nomen, 'anf': anf, 'instanz_epik': instanz_epik, 'instanz_lyrik': instanz_lyrik,
-#            'sprechmarker': sprechmarker, 'sprechmarker_lang':sprechmarker_lang, 'ohne_dupl': ohne_dupl, 'nur_dupl': nur_dupl}
-merkmal = {'sprechmarker_lang':sprechmarker_lang}
+# merkmal = {'emotion': emotion, 'nomen': nomen, 'anf': anf, 'instanz': instanz, 'sprechmarker': sprechmarker,
+#            'sprechmarker_lang':sprechmarker_lang, 'ohne_dupl': ohne_dupl, 'nur_dupl': nur_dupl}
+merkmal = {'sprechmarker': sprechmarker, 'sprechmarker_lang':sprechmarker_lang}
 segmentcount = ['100', '500', '1000']
 for k,v in merkmal.items():
     for c in segmentcount:
