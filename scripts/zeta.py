@@ -58,7 +58,6 @@ def count_merkmale(Partition, merkmal):
 
 def zeta_per_word(Partition, merkmal):
     ''' zählt für jedes Merkmal in merkmal, ob es im Segment vorkommt '''
-    # anzahl = 0
     dic = {}
 
     list = os.listdir(Partition)  # dir is your directory path
@@ -71,14 +70,11 @@ def zeta_per_word(Partition, merkmal):
             t = open(Partition + "/" + text, "r")
             f = t.read()
             if text.endswith(".txt"):
-                # anzahl += 1
                 if wort in f:
                     startIndex+=1
-                    #startIndex =+ f.count(e) #'\"')
                 print(text, wort, startIndex)
             if startIndex >= 1:
                 häufigkeitSegment += 1
-                # print(text, häufigkeitSegment)
         rf_directSpeech = häufigkeitSegment/anzahl
         dic[wort] = rf_directSpeech
     return dic
