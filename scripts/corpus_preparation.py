@@ -30,21 +30,21 @@ def lemma(inpath, outpath, charFilter):
                 except:
                     pass
             f_lemma.append(result)
-            if os.path.exists(outpath + text.split('_')[1]+'.txt'):
-                txtFile = open(outpath + text.split('_')[1]+'.txt', 'w')
+            if os.path.exists(outpath + text.split('_')[1]+'_'+text.split('_')[2]+'.txt'):
+                txtFile = open(outpath + text.split('_')[1]+'_'+text.split('_')[2]+'.txt', 'w')
                 txtFile.write('')
                 txtFile.close()
-            txtFile = open(outpath + text.split('_')[1]+'.txt', 'a')
+            txtFile = open(outpath + text.split('_')[1]+'_'+text.split('_')[2]+'.txt', 'a')
             for i in f_lemma:
                 txtFile.write(replace(i, charFilter + ' '))
             txtFile.close()
     return
 
 charFilter = ",.!;:—?-_(){}[]/\\"
-inpath = '../corpus/autoren_epik/'
-outpath = '../corpus/autoren_epik/autoren_epik_lemma/autoren_epik_lemma_'
+# inpath = '../corpus/autoren_corpora/autoren_lyrik/'
+# outpath = '../corpus/autoren_corpora/autoren_lyrik/autoren_lyrik_lemma/autoren_lyrik_lemma_'
 # print("text", lemma(inpath, outpath, charFilter))
-
+#
 def concat_corpus(path):
     ''' Fügt alle txt-Datein zu einer Großen zusammen '''
     read_files = glob.glob(path) #Arent/lemma/*.txt")
@@ -58,8 +58,8 @@ def concat_corpus(path):
                 outfile.write(infile.read()) #.lower())
     corpus_name = os.rename('../corpus/result.txt', '../corpus/corpus_' + str(corpus) + '.txt')
     return corpus_name
-path = "../corpus/autoren_epik/autoren_epik_lemma/*.txt"
-# concat_corpus(path)
+path = "../corpus/fontane/epik/*.txt"
+concat_corpus(path)
 # tagger.tag_file_to('../corpus/German_prosa/prosa/achleitner_bergrichters.txt', '../corpus/German_prosa/prosa/achleitner_bergrichters2.txt') #evtl für gesamtes Korpus
 
 
@@ -83,8 +83,8 @@ def segment(wordList, n, outpath):
             pass
     return
 
-
-out = '../corpus/segmente/autoren_segmentelyrik_500/lyrik'
-words = open('../corpus/autoren_corpora_gesamt/corpus_autoren_lyrik.txt', 'r')
-wordList = words.read()
-segment(wordList.split(), 500, out)
+#
+# out = '../corpus/segmente/keller_epik_500/epik'
+# words = open('../corpus/autoren_corpora/keller/gesamt/corpus_keller_epik.txt', 'r')
+# wordList = words.read()
+# segment(wordList.split(), 500, out)
