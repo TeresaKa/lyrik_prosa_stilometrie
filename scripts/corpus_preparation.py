@@ -58,7 +58,7 @@ def concat_corpus(path):
                 outfile.write(infile.read()) #.lower())
     corpus_name = os.rename('../corpus/result.txt', '../corpus/corpus_' + str(corpus) + '.txt')
     return corpus_name
-path = "../corpus/fontane/epik/*.txt"
+path = "../corpus/segmente/zklein_gesamt/*.txt"
 concat_corpus(path)
 # tagger.tag_file_to('../corpus/German_prosa/prosa/achleitner_bergrichters.txt', '../corpus/German_prosa/prosa/achleitner_bergrichters2.txt') #evtl für gesamtes Korpus
 

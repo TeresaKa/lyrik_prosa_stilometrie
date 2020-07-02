@@ -27,7 +27,7 @@ class Zscores():
     def count_frequencies(self, df):
         freq_list = []
         for i, row in df.iterrows():
-            title = str(row.Autor) + '_' + str(row.Titel)
+            title = str(row.ID)
             vocab = Counter(row.removedstopword.split())
             frequencies = list(vocab.values())
             words = list(vocab.keys())
@@ -37,20 +37,24 @@ class Zscores():
     def calculate_zscores(self):
         df = self.remove_stopwords()
         freq_list = self.count_frequencies(df)
-
         counts = pd.DataFrame(freq_list)
         counts = counts.fillna(0)
         counts = counts.div(counts.sum(axis=1), axis=0)
         counts.loc['Total_per_word'] = counts.sum()
         counts = counts.sort_values(by='Total_per_word', axis=1, ascending=False)
         counts.drop('Total_per_word', inplace=True, axis=0)
+        print(counts)
 
-        zscores = counts.apply(zscore)
+        zscores = counts - counts.mean() / counts.std(ddof=0)
+        # zscores = counts.apply(zscore)
+        print(zscores)
+
         zscores.drop(zscores.columns[1000:], inplace=True, axis=1)
+
         return zscores
 
 
-poems = pd.read_csv('../corpus/corpora/lyrik/lyrik.csv')
+poems = pd.read_csv('../corpus/0_csv_fuer_delta/hauptcorpus_gesamt.csv')
 z = Zscores(poems)
 zscores = z.calculate_zscores()
-zscores.to_csv('../results/delta/zscores_lyrik.csv')
+zscores.to_csv('../results/delta/zscores_hauptcorpus.csv')

@@ -17,6 +17,7 @@ class Delta:
         """ Calculates Manhattan, Cosine and Euclidean Delta measures and returns them as pd.Series """
         series_list = []
         for index, row in self.df.iterrows():
+            print(self.unknown, row)
             manhattan = distance.cityblock(row, self.df.loc[self.unknown])
             cosine = distance.cosine(row, self.df.loc[self.unknown])
             euclidean = distance.euclidean(row, self.df.loc[self.unknown])
@@ -57,11 +58,11 @@ def delta_attribution(path, prefix):
         for u in zscores.index:
             attribution = pd.concat([attribution, Delta(zscores, u).assign_labels()])
         print(attribution)
-        attribution.to_hdf('../results/delta/delta_results.h5',  key='data', mode='w')
+        attribution.to_hdf('../results/delta/delta_hauptcorpus.h5',  key='data', mode='w')
 
 
 if __name__ == "__main__":
-    path = '../results/delta/zscores_alle.csv'
+    path = '../results/delta/zscores_hauptcorpus.csv'
     prefix = '../results/delta/'
 
     delta_attribution(path, prefix)
