@@ -45,7 +45,7 @@ class Zscores():
         counts.drop('Total_per_word', inplace=True, axis=0)
         print(counts)
 
-        zscores = counts - counts.mean() / counts.std(ddof=0)
+        zscores = (counts - counts.mean()) / counts.std()
         # zscores = counts.apply(zscore)
         print(zscores)
 
@@ -54,7 +54,7 @@ class Zscores():
         return zscores
 
 
-poems = pd.read_csv('../corpus/0_csv_fuer_delta/hauptcorpus_gesamt.csv')
+poems = pd.read_csv('../corpus/0_csv_fuer_delta/fontane_corpus_gesamt.csv', index_col=[0])
 z = Zscores(poems)
 zscores = z.calculate_zscores()
-zscores.to_csv('../results/delta/zscores_hauptcorpus.csv')
+zscores.to_csv('../results/delta/zscores_fontane.csv')
