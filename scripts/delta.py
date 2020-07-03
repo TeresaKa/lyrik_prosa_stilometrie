@@ -63,11 +63,11 @@ def delta_attribution(path, prefix):
             # print(u)
             attribution = pd.concat([attribution, Delta(zscores, u).assign_labels()])
         # print(attribution)
-        attribution.to_hdf('../results/delta/delta_fontane.h5',  key='data', mode='w')
+        attribution.to_hdf('../results/delta/delta_autoren_corpus.h5',  key='data', mode='w')
 
 
 if __name__ == "__main__":
-    path = '../results/delta/fontane/*.csv'
-    prefix = '../results/delta/fontane/'
+    path = '../results/delta/autoren_corpus/*.csv'
+    prefix = '../results/delta/autoren_corpus/'
 
     delta_attribution(path, prefix)
