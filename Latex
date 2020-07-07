@@ -1,0 +1,197 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {/home/piah/Dokumente/Uni/Stilo_git/lyrik_prosa_stilometrie/Bilder_Theorie/} }
+
+%opening
+\title{Gattungszuordnung anhand inhaltlicher Merkmale mit Hilfe gängiger stilometrischer Methoden}
+\author{Teresa Kaiser, Pia Henning}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Einleitung}
+Stilometrische Analysen werden viel verwendet, in verschiedensten Bereichen (Beispiele)
+vor allem Autorschaftsattribution → Gattungen selten betrachtet, deshalb unser Forschungsinteresse
+viel verwendete und erfolgreiche Methoden: Zeta und Delta (mittlere und häufigste Wörter) → auch wir verwenden diese Methoden
+Frage:   Lassen sich Gedichte und Prosa Texte stilometrisch nach ihren inhaltlichen Gattungsmerkmalen unterscheiden? Können Störsignale/ Noise aus Autorschaft/ Zeit etc. eliminiert werden?
+Sentext -> scheint grob zu gehen
+Nullhypothese: ja, das geht
+→ Überprüfung mit: Zeta, Delta 
+
+
+\section{ Datenexploration}
+Exploration
+Wie verhindern wir Rauschen? Bei Gedichten: Lieber gleiche Korpuslänge, als ausgeglichene Autorzahl. Nur ein Text pro Autor um  Cluster zu vermeiden. Balladen? Segmente mischt durch, vor allem bei den Gedichten -> keine Autoren mehr zuordbar
+wie sind Emotionswörter embedded? (antconc)
+Versuchsaufbau 
+SenText.
+-> Prosa implizierter, Lyrik explizit. Deshalb SenText nicht aussagekräftig.
+
+Vorüberlegungen: Gedichte sind Emotionaler; Gattungsmerkmale. Deshalb Analyse in SenText, ob das stimmt. Ergebnis: Ausgewogene Verteilung(positiv und negativ) sowohl mit BAWL als auch der SentiWS Liste. Aber bei Wordcloud: Unterschiedliche Wörter -> Gedichte haben mehr reine Emotionswörter und Emotionstags.
+Liste der Emotionslklassifikation (HiWi) -> davon Emotionswörter
+uns ist Polarität egal, hauptsache Emotion
+Zeta nach Emotion -> wir brauchen explizite Emotionen
+
+
+\section{Gattungsmerkmale}
+Die deutsche Literatur wird üblicherweise in die drei Hauptgattungen Epik, Drama und Lyrik untergliedert. Sie lassen sich anhand zahlreicher Merkmale klar abgrenzen. Literaturwissenschaftlich mit Hilfe von stilometrischen Methoden am besten untersucht sind Prosatexte der Gattungen Epik und Drama. Um nun erforschen zu können ob sich lyrische Texte des 19. Jahrhunderts mit den gleichen stilometrischen Vorgehensweisen untersuchen lassen wurde ein episches Vergleichskorpus gewählt, um Rauschen durch Szenenbeschreibungen auszuschließen. 
+Um ein möglichst aussagekräftiges Ergebnis erhalten zu können, werden die Parameter der Berechnungen und die zu vergleichenden Merkmale an die Abweichungen der jeweiligen Gattungsmerkmale angepasst. 
+Lyrische Texte, sind Verstexte, die nicht episch oder dramatisch sind. Üblicherweise sind sie in Versform verfasst und bilden vom Satz unabhängige Einheiten. Sie sind monologisch, statt dialogisch aufgebaut, dadurch werden keine Gesprächssituationen gebildet. Als einzige Ausnahme fungieren Balladen, die als einzige lyrische Form direkte Rede beinhalten. Sie bedienen sich stattdessen vermehrt an Metaphern, Symbolen, Allegorien und Metonymien. Rein formal betrachtet unterscheiden sich lyrische Texte insbesondere durch den Textumfang und die metrische Form der Verse und somit die gebundene Form der Sprache, die in Wort-und Satzakzent über die Normalsprache hinausgeht. Als wichtigstes lyrisches Kriterium gilt jedoch die Leidenschaft und Emotion der Texte. 
+Eine Schwierigkeit bei der Definition von lyrischen Merkmalen ist die Vielzahl der Gedichtformen, die jeweils starke eigene Merkmale aufweisen.
+Epische Texte zeichnen sich im Gegensatz dazu durch die Erzählinstanz und Erzählgegenstand aus. Sie werden der erzählenden Literatur zugeordnet und können sowohl in Prosa als auch in Versform verfasst sein. Auch der Umfang ist nicht ausschlaggebend.
+Da nicht nur Gattungen, sondern auch die literaturwissenschaftlichen Epochen und Strömungen Gemeinsamkeiten und Merkmale aufweisen, werden zur Analyse die Korpora mit Texten der gleichen Zeitspanne aufgebaut. Hiefür wurde das 19. Jahrhundert gewählt, da hier die gängige Einteilung der Gattungen kanonisiert wurde.
+
+
+\section{Exkurs}
+\subsection{Emotionen und Emotionsklassifikation}
+Beim Hauptmerkmal der Lyrik auf inhaltlicher Ebene handelt es sich um Emotionen. Hierbei wichtig ist die Begriffsklärung der Emotion und Auseinandersetzung mit der sprachlichen Darstellung. Da Emotionen unseren Alltag, Handeln und den zwischenmenschlichen Umgang prägen, besitzt jeder eine Vorstellung von Emotion, dennoch fällt das Erkennen und Ausdrücken häufig schwer. Es handelt sich um ein komplexes Zusammenspiel subjektiver und objektiver Faktoren, mit Auswirkungen auf unser neuronales System. Dies erschwert die Untersuchung und klare Definition des Emotionsbegriffs.
+Eine Minimaldefinition erleichtert die Herangehensweise und Untersuchung. Das automatisierte Erkennen von Emotionen fällt bei expliziten Emotionen wesentlich leichter, da hier die Emotion durch ein prototypisches Emotionswort explizit thematisiert wird.
+Die Vielzahl an Emotionen wurden im Laufe der Zeit von verschiedenen Wissenschaftlern aus diversen Disziplinen klassifiziert. Eines der bekannten Klassifikationssysteme stammt von Robert Plutchik, der die Emotionen in einem Rad der Emotionen zusammenfasst. Er benennt acht Primäremotionen (Wut, Ekel, Trauer, Begeisterung, Panik, Erwartung, Überraschung, Vertrauen), die in zwei weiteren Etappen abgestuft werden, wobei die Intensität der Emotionen kontinuierlich abnimmt. Ähnliche Emotionen sind in Plutchiks Darstellung benachbart. 
+\begin{figure}[h]
+
+\includegraphics[width=\textwidth]{plutchik_wheel.png}
+\caption{Plutchiks Wheel of Emotions}
+\label{Wheel}
+\end{figure}
+Neben den primären Emotion hat Plutchik auch primäre, sekundäre und tertiäre Emotions Paare definiert, wobei die Emotion eines primären Emotion Paars aus zwei direkt benachbarten Emotionen gebildet wird, sekundäre Emotion Paare aus aus zwei Feldern entfernten Emotionen besteht und tertiäre Emotions Paare drei Felder voneinander entfernt sind. Vier Felder entfernte und somit gegensätzliche Emotionen sind Gegenteilige Emotions Paare.
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{Plutchik_Dyads.png}
+\caption{Plutchiks Übersicht zu Dyaden der Emotionen}
+\label{fig:Dyads}
+\end{figure}
+Da sich Plutchik das Ziel gesetzt hat ein Konzept zu entwickeln, das alle evolutionären Level der Emotionen aller Tiere, inklusive Menschen abzubilden und diese Emotionen zur Bildung weiterer Emotionen heranzieht, ist das Modell für die Analyse von Emotionen in der Literatur geeignet, da es die wichtigsten und somit stärksten Emotionen abbildet. 
+Aus diesem Grund werden für die nachfolgende Analyse der Emotionen in Lyrik und Epik die acht Basisemotionen Wut, Ekel, Trauer, Begeisterung, Panik, Erwartung, Überraschung, Vertrauen als Emotionswörter herangezogen. Der Liste der Emotionswörter wird zusätzliche ihre adjektivische und gegebenenfalls verbale ??? Verwendung hinzugefügt, sowie die Emotion Liebe, da sie durch Liebeslyrik und Liebesromane bezeichnend und namensgebend sowohl für Epik, als auch Lyrik ist. 
+Eine genaue Listung der herangezogenen Emotionswörter findet sich im Anhang. 
+
+
+
+
+
+\subsection{Direkte Rede}
+
+\section{Zeta}
+Um die beiden Korpora auf sprachlicher und literaturwissenschaftlicher Ebene untersuchen zu können, wird im folgenden Textabschnitt eine kontrastierende Analyse, mit Hilfe eines Zeta-Maß, durchgeführt. !!!Evtl dazuschreiben: “um zu testen, ob die formalen Unterschiede der Gattungen wie oben definiert auf unser Korpus zutreffen” ? !!! Ursprünglich wurde das Maß von John Burrow vorgeschlagen, Christof Schöch zeigt anhand einer neuen Implementierung dessen Möglichkeiten bei der Unterscheidung der drei dramatischen Gattungen Komödie, Tragödie und Tragikomödie auf.
+Da es laut  Schöch “mathematisch gut nachvollziehbar” ist und seine Ergebnisse gut interpretierbar sind, ist davon auszugehen, dass es für die erste Analyse der Gattungsunterschiede zwischen Lyrik und Epik, geeignet ist, da es sich ebenfalls um klar abgrenzbare Gattungen handelt.
+Bei dem Zeta-Maß handelt es sich um ein Maß für Distinktivität, der sogenannten keyness, von Merkmalen. Es eignet sich daher gut für eine binäre Klassifikation von Texten. Für die Differenzierung von Lyrik und Epik auf Textebene anhand charakteristischer Merkmale werden im Folgenden Emotionen, direkte Rede und Worthäufigkeiten herangezogen. 
+Aufgrund der zuvor ermittelten Gattungsmerkmale, ist davon auszugehen, dass die Emotionen, Emotionswörter und Emotionstagger, wie beispielsweise fühlen, charakteristisch dem Lyrik-Korpus zugesprochen werden können, wohingegen Merkmale der direkte Rede, wie Anführungszeichen und Verben der direkten Rede, charakteristisch dem Epik-Korpus zugeordnet werden können.
+Die charakteristische Zuordnung wird durch das Verhältnis der relative Häufigkeiten des Merkmals in beiden Partitionen ermittelt (rff). Dafür wird für jedes Merkmal i die relative Häufigkeit rf in der Zielpartition Z und der Vergleichspartition V ermittelt. Die rf der Zielpartition durch den Wert der Vergleichspartition dividiert.\\
+
+
+
+\begin{align}
+rrf_{i}=\frac{rf_{i}(Z)}{rf_{i}(V)}
+\end{align}
+\\
+
+
+Für die Analyse durch das Zeta-Maß, werden beide Partitionen in gleich lange Segmente aufgeteilt. Wodurch eine Untersuchung sowohl von langen als auch kurzen Texten möglich ist. Es folgt keine Erhebung der Häufigkeit eines Merkmals pro Segment, sondern die Anzahl der Segmente, in denen das Merkmal mindestens einmal vorkommt. Der resultierende Wert gibt an, wie konsistent das Merkmal in den unterschiedlichen Partitionen Verwendung findet.\\
+
+
+\begin{align}
+dp_{i}(Z)=\frac{df_{i}(Z)}{n(Z)}
+\end{align}\\
+
+oder auch\\
+
+
+\begin{align}
+dp_{i}(V)=\frac{df_{i}(V)}{n(V)}
+\end{align}
+\\
+
+
+Dafür wird jedes Merkmal i erhoben in wie vielen Segmenten von Z und V es jeweils vorkommt (df). Diese Werte werden zu Anteilen umgerechnet (n(Z), n(V)). Die Zeta-Formel erhält man durch Subtraktion des Anteils der Zielpartition mit dem Anteil der Vergleichspartition.\\
+
+\begin{align}
+Zeta_{i}=dp_{i}(Z)-dp_{i}(V)
+\end{align}\\
+ 
+ 
+Der Zeta-Wert liegt zwischen -1 und 1. Tendiert er gegen 1, ist das Merkmal für die Zielpartition besonders charakteristisch, tendiert er gegen -1 ist er äußerst uncharakteristisch für die Zielpartition. Bei einer Tendenz gegen 0, kommt das Merkmal in jedem Segment beider Partitionen gleich oft vor.
+Als Zeta-Wert, für eine klare Zuordnung wird in der folgenden Analyse 0,3 verwendet. (Schöch 0,4)
+
+
+\section{Delta}
+Das erste stilometrische Verfahren, das zur Unterscheidung epischer und lyrischer Texte getestet wird, ist das von Burrows entwickelte Deltamaß. Da es sich in verschiedensten Anwendungsfällen als zuverlässiges, robustes Maß erwiesen hat, das häufig für erste Baseline-Ergebnisse verwendet wird, wurde es auch für die vorliegende Arbeit als Grundlage gewählt. 
+Die Grundidee des Delta ist es, den Mittelwert der absoluten Differenzen zwischen den Z-Scores für alle betrachteten Wörter der beiden verglichenen Texte zu berechnen. Je kleiner der berechnete Delta-Wert zwischen zwei Texten ist, desto größer ist die stilistische Ähnlichkeit zwischen ihnen einzustufen. Da die große Anzahl von einmalig auftretenden Wörtern Überlegungen verlangsamt und erschwert, wird nur eine vorher festgelegte Menge von häufigsten Wörtern verwendet, die nach der Berechnung der Z-Scores abgeschnitten wird. Aufgrund der Heterogenität der Textsammlung !!! werden Analysen mit verschiedenen Werten der most frequent words (MFW) durchgeführt (100, 500, 1.000 wie bei Segmenten?). !!!
+Für die folgenden Berechnungen soll im Speziellen das Cosinus-Delta angewandt werden, das die Distanz zwischen zwei Dokumentvektoren mithilfe des Winkels zwischen ihnen misst. Da hierbei die Länge der einzelnen Texte an Bedeutung verliert, ist diese Version für die Analyse von Texten unterschiedlicher Gattungen und damit auch stark variierender Länge besser geeignet als Deltaverfahren, die z.B. die Manhattan- oder die Euklidische Distanz berechnen.
+Die Berechnung des Cosinus-Deltas basiert auf folgender Formel, die mit den Z-Scores z für alle Wörter i im bekannten Dokument D und dem unbekannten D’ arbeitet:\\
+
+
+
+
+Die Delta-Werte werden in der vorliegenden Analyse für das aus zwei Textgattungen bestehende Korpus berechnet, wobei jeder enthaltene Text einmal als unbekannter Text behandelt wird. Ein Wert nahe 1 beschreibt eine hohe Ähnlichkeit der zwei verglichenen Texte, während Werte bis -1 eine immer größer werdende Distanz ausdrücken. Da für alle Texte die Gattungszugehörigkeit  bekannt ist, wird für jeden Delta-Wert außerdem vermerkt, ob es sich bei der Berechnung um dasselbe oder um zwei verschiedene Genres handelt. Daraus kann im nächsten Schritt schließlich die Genauigkeit der Attribution berechnet werden.
+
+
+\section{Resultate | Fazit}
+
+Zeta\\
+
+
+Betrachtet man die allgemeinen Zetawerte der einzelnen inhaltlichen Gattungsmerkmale,  wird deutlich, dass Sprechmarker, sowohl in der langen, als auch der kurzen Liste eine Tendenz zur \textit{Epik} aufweisen. Die Listen der Emotionen nach Plutchik und ihren Erweiterungen weisen eine Tendenz zur \textit{Lyrik} auf, wohingegen die lange Liste \textit{SentiWS} ausgeglichen ist. Anführungszeichen, als Zeichen der direkten Rede, sind eindeutig der \textit{Epik} zuweisbar. Somit werden die Hypothesen bezüglich der jeweiligen Zuweisung der Gattungsmerkmale weitestgehend bestätigt. Es ist jedoch deutlich, dass, außer bei der Zuordnung der direkten Rede, eine detailliertere Untersuchung nötig ist. Dafür werden im folgenden die Zetawerte pro Wort, pro Merkmal untersucht, da die Sprechmarker und \textit{SentiWS} Abweichungen aufweisen.
+
+Auch der Boxplot bestätigt die aufgestellten Nullhypothesen und verdeutlicht, dass eine detailliertere Untersuchung nötig ist.\\
+
+pro Wort 500\\
+
+
+Vergleicht man die 100 höchsten\footnote{Merkmal der Gattung Lyrik.} und niedrigsten\footnote{Merkmal der Gattung Epik.} Zetawerte der Adjektive der beiden Korpora, ist zu erkennen, dass die Verteilung der Zetawerte auf der Seite der Lyrik eindeutiger sind. Was eine leichte Tendenz der Adjektive zur Gattung Lyrik allgemein erkennen lässt. Diese Tendenz ist jedoch nicht eindeutig genug, um sie im Folgenden von den Untersuchung auf Grund eines Rauschen ausschließen zu können. Außerdem scheinen auf der Seite der Lyrik mehr emotionsbehaftete Adjektive zu liegen.
+
+Bei der Liste \textit{Emotionen}, liegt eine deutliche Tendenz der Emotionswörter zur Gattung \textit{Lyrik} vor. Insbesondere die Wörter \textit{Herz}, \texint{Seele},  \textit{Liebe} und \textit{Glück} sprechen sind mit ihren Zetawerten eindeutig. Für \textit{Epik} liegen keine eindeutigenZetawerte vor. Da die Liste der Emotionswörter allerdings sehr knapp ist, ist eine weitereichendere Untersuchung notwendig. 
+
+Die Zetawerte der Erzählinstanz zeigen keine klaren Tendenzen.
+
+Die Untersuchung der Emotionen nach Plutchik (inklusive der Emotion Liebe) zeigt, dass nur das Emotionswort \textit{Liebe}\footnote{die Emotion \textit{Liebe}} explizit geäußert wird. Diese explizite Emotionsäußerung kann eindeutig der Gattung \textit{Lyrik} zugeordnet werden. Keine der Basisemotionen nach Plutchik weißt eindeutige Zetawerte der gattung \textit{Epik} auf.
+
+Eine ausführlichere Liste der Emotionen wurde als \textit{SentiWS} von blablabla??? erstellt und zugänglich gemacht. Sie beinhaltet positve, als auch negative Wörter, die Emotionen ausdrücken und besteht aus Verben, Adjektiven und Substantiven. Unter den 100  höchsten Zetawerten befinden sich sieben, die mit einem Wert über 0,3 eindeutig der \textit{Lyrik} zugeordnet werden können. Fünfundzwanzig haben mit Werten über 0,2 eine deutliche Tendenz und cicra fünfunddreißig haben mit Werten über 0,1 eine Tendenz zur \textit{Lyrik}. Auch auf Seiten der \textit{Epik} finden sich keine eindeutigen Zetawerte unter -0,3. Nur fünf unter -0,2 und weisen damit eine deutliche Tendenz auf und nur circa fünfzehn weisen mit Werten unter -0,1 eine Tendenz zur \textit{Epik} auf. Dies beweist eine deutliche Tendenz der Emotionswörter hin zur \textit{Lyrik} auf. Aus der Graphik geht die Verteilung von Substantiven, Adjektiven und Verben jedoch nicht hervor, sodass ein Rauschen noch ausgeschlossen werden muss.
+
+Die Untersuchung der Pronomen ergibt, dass \textit{Lyrik} die Pronomen \textit{mein}, \textit{euer}, \textit{sein}, \textit{du}, \textit{unser} und \textit{wir} Tendenzen zur \textit{Lyrik} aufweisen. Eine klare Aussage bezüglich der Sprecher lässt sich hieraus jedoch nicht ziehen. 
+
+Die Zetawerte der Liste \textit{Sprechmarker} verdeutlicht, dass diese deutlich der \textit{Epik} zuegordnet werden können. Die Gattung der \textit{Lyrik} weist keine Werte über 0,1, auf und bei den obersten Sprechmarkern handelt es sich um emotionsbehaftete Verben wie \textit{klagen} und \textit{schluchzen}. Allerdings fällt die Kategorisierung der Sprechmarker nicht so eindeutig aus wie erhofft, da auf Seiten der \textit{Epik} nur \textit{sagen} mit einem Wert von -0,34 eindeutig ist. Dennoch ist eine deutliche Tendenz zu erkennen.
+Die genauere Untersuchung der typischen Sprechmarker in der Liste \textit{SprechmarkerKurz} zeigt, dass die gängigen Sprechmarker \textit{sagen}, \textit{fragen}, \textit{sprechen} und \textit{antworten} der \textit{Epik} zuegordnet werden können. 
+
+Die Verteilung der Substantive zeigt, ähnlich den Adjektiven, eine Tendenz hin zur \textit{Lyrik}. In beiden Fällen kann eine Untersuchung der relativen Häufigkeit sinnvoll sein. Auch eine Untersuchung der Zusammensetzung der Substantive ist sinnvoll, da es Tendenzen in Richtung Emotionswörter, Sprechmarker und Erzählung zu geben scheint.
+
+Bei den Verben fällt auf, dass es sich beim eindeutigsten Verb der \textit{Epik} um den Sprechmarker \textit{sagen} handelt. Doch auch hier ist auffällig, dass es in der \textit{Lyrik} eindeutigere Zetawerte gibt. 
+\\
+
+
+
+
+-> Emotionen  sowohl eindeutiger, als auch häufiger bei Lyrik. Adjektive sind generell emotionaler, können deshalb ausgeschlossen werden von der Untersuchung der Unterschiede, da sie rauschen. 
+-> Erzählinstanz konnte überhaupt nicht nachgewiesen werden -> wir suchen falsch
+-> Sprechmarker sowohl eindeutiger, als auch häufiger in Epik 
+-> Anführungszeichen/direkte Rede eindeutig Epik
+-> die Hypothesen der Gattungsmerkmale konnte bis auf die Sprechinstanz nachgewiesen werden. 
+
+
+ZETA IN FONTANE
+alle Merkmale: Sprechmarker, Plutchik, Anf, alle haben sehr kleine Werte
+Adjektive recht gleichmäßig verteilt
+Emotion: Herz 0,5, als nächstes ca. 0.25 Lust → vergleichen mit autorenkorpus/ kleines Korpus: wie sind da die Werte mit/ ohne Fontane
+MERKMALSPOSITION IN MFW Fontane
+13 sentiws+emotion in epik, 16 in lyrik
+2 sprechmarker in epik, 3 in lyrik (rufen, singen, grüßen)
+
+
+MFW-Ranking: an welcher Position befinden sich Wörter nur bei Fontane vs. nur im kleinen Epik+Lyrik Korpus (ohne Fontane)
+Adjektive: schön: 11/ 0,021 vs. 19/0,013; still: 9/ 0,022 vs. 24/ 0,011; tief: 12/0,02 vs. 47/0,008, alt: 15/ 0,018 vs. 3/ 0,038
+sentiemo: herz: 2/ 0,038 vs 7/0,029; seele: 20/ 0,015 vs. 186/ 0,004; schlagen 65/ 0,008 vs. 23/ 0,012
+sprechmarker: rufen: 17/ 0,017 vs. 27/0,011; singen: 25/0,013 vs. 59/ 0,007
+substantive: auge: 4/ 0,027 vs. 41/ 0,009; könig: nicht bei klein vs. 18/ 0,014
+
+
+
+\section{Abbildungsverzeichnis}
+\listoffigures
+
+\section{Bibliographie}
+
+
+\begin{align}
+cos\delta (D,D')=\frac{\sum i z_{i}(D)\cdot z_{i}(D')}{\qquad||z_{i}(D)\quad_{2}\qquad||z_{i}(D')\quad_{2}}=\frac{\sum_{i}z_{i}(D)\cdot_{i}(D')}{\sqrt{\sum_{i}z_{i}(D)^2}\sqrt{\sum_{i}z_{i}(D')²}
+\end{align}\\
+
+\end{document}
