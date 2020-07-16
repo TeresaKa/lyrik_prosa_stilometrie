@@ -1,0 +1,92 @@
+\begin{thebibliography}{}
+
+\bibitem[tex, 2020]{textgrid}
+ (2020).
+\newblock {TextGrid Repository}.
+
+\bibitem[Blo{\ss}, 2005]{Bloss2005}
+Blo{\ss}, A. (2005).
+\newblock {\em {Merkmale von Figurenrede in narrativen Texten – Ein Vergleich
+  zwischen deutschen und englischen Romanen und Kurzgeschichten}}.
+\newblock PhD thesis, Julius-Maximilians-Universit{\"{a}}t W{\"{u}}rzburg.
+
+\bibitem[{Computational Stylistics Group}, 2020]{ComputationalStylisticsGroup}
+{Computational Stylistics Group} (2020).
+\newblock {68 German Novels}.
+
+\bibitem[Dornseiff, 2000]{Dornseiff2000}
+Dornseiff, F. (2000).
+\newblock {\em {Der deutsche Wortschatz nach Sachgruppen}}.
+\newblock Wiesbaden.
+
+\bibitem[Evert et~al., 2017]{Evert2017a}
+Evert, S., Proisl, T., Jannidis, F., Reger, I., Pielstr{\"{o}}m, S.,
+  Sch{\"{o}}ch, C., and Vitt, T. (2017).
+\newblock {Understanding and explaining Delta measures for authorship
+  attribution}.
+\newblock {\em Digital Scholarship in the Humanities},
+  32(suppl{\_}2):ii4--ii16.
+
+\bibitem[{Goldhahn, D; Eckart, T.; Quasthoff}, 2012]{Sentiws}
+{Goldhahn, D; Eckart, T.; Quasthoff}, U. (2012).
+\newblock {Building Large Monolingual Dictionaries at the Leipzig Corpora
+  Collection: From 100 to 200 Languages}.
+\newblock {\em Proceedings of the 8th International Language Resources and
+  Evaluation (LREC'12)}.
+
+\bibitem[Hillebrandt, 2011]{Hillebrandt2011}
+Hillebrandt, C. (2011).
+\newblock {\em {Das emotionale Wirkungspotenzial von Erz{\"{a}}hltexten}}.
+\newblock Akademie Verlag, Berlin.
+
+\bibitem[Juola, 2015]{Juola2015}
+Juola, P. (2015).
+\newblock {The Rowling Case: A Proposed Standard Analytic Protocol for
+  Authorship Questions}.
+\newblock {\em Digital Scholarship in the Humanities}, 30:i100--i113.
+
+\bibitem[{Kleinginna, Paul R; Kleinginna},
+  1981]{KleinginnaPaulR;Kleinginna1981}
+{Kleinginna, Paul R; Kleinginna}, A.~M. (1981).
+\newblock {A categorized list of emotion definitions, with suggestions for a
+  consensual definition.}
+\newblock {\em Motivation and Emotion 4}.
+
+\bibitem[Krah, 2006]{Krah2006}
+Krah, H. (2006).
+\newblock {\em {Einf{\"{u}}hrung in die Literaturwissenschaft. Textanalyse}}.
+\newblock Ludwig, Kiel.
+
+\bibitem[Plutchik, 1991]{Plutchik}
+Plutchik, R. (1991).
+\newblock {\em {The Emotions}}.
+\newblock London.
+
+\bibitem[{Remus, R. ; Quasthoff , U.; Heyer}, 2010]{Remus}
+{Remus, R. ; Quasthoff , U.; Heyer}, G. (2010).
+\newblock {SentiWS - a Publicly Available German-language Resource for
+  Sentiment Analysis}.
+\newblock {\em Proceedings of the 7th International Language Resources and
+  Evaluation (LREC'10)}, pages pp. 1168--1171.
+
+\bibitem[Sch{\"{o}}ch, 2018]{SchoechZeta}
+Sch{\"{o}}ch, C. (2018).
+\newblock {Zeta f{\"{u}}r die kontrastive Analyse literarischer Texte}.
+
+\bibitem[{Sch{\"{o}}ch, Christof; Odebrecht, Carolin; Konle}, 2020]{ELTEC}
+{Sch{\"{o}}ch, Christof; Odebrecht, Carolin; Konle}, L. L. B.~C. (2020).
+\newblock {ELTeC-deu}.
+
+\bibitem[{Schweikle, G{\"{u}}nther; Burdorf},
+  2007]{SchweikleGunther;Burdorf2007}
+{Schweikle, G{\"{u}}nther; Burdorf}, D. (2007).
+\newblock {\em {Metzler-Lexikon Literatur}}.
+\newblock Metzler, Stuttgart.
+
+\bibitem[Stamatatos, 2009]{Stamatatos}
+Stamatatos, E. (2009).
+\newblock {A survey of modern authorship attribution methods}.
+\newblock {\em Journal of the American Society for Information Science and
+  Technology}, 60(3):538--556.
+
+\end{thebibliography}

@@ -1,0 +1,17 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Datenexploration}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Gattungsmerkmale}{6}{section.3}% 
+\contentsline {section}{\numberline {4}Exkurs}{7}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Emotionen und Emotionsklassifikation}{7}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Direkte Rede}{8}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}Zeta}{9}{section.5}% 
+\contentsline {section}{\numberline {6}Delta}{11}{section.6}% 
+\contentsline {section}{\numberline {7}Resultate | Fazit}{12}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Zeta}{12}{subsection.7.1}% 
+\contentsline {subparagraph}{Hauptkorpus}{12}{section*.10}% 
+\contentsline {subparagraph}{Autorenkorpus}{16}{section*.18}% 
+\contentsline {subparagraph}{Vergleichs- und Fontanekorpus}{17}{section*.21}% 
+\contentsline {subsection}{\numberline {7.2}Delta - Resultate}{22}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Fazit}{27}{subsection.7.3}% 
+\contentsline {section}{\numberline {8}Bibliographie}{28}{section.8}% 
