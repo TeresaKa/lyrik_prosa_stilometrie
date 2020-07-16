@@ -67,8 +67,6 @@ Eine genaue Listung der herangezogenen Emotionswörter findet sich im Anhang.
 
 
 
-
-
 \subsection{Direkte Rede}
 
 \section{Zeta}
@@ -80,9 +78,11 @@ Die charakteristische Zuordnung wird durch das Verhältnis der relative Häufigk
 
 
 
-\begin{align}
+\begin{equ}
+    \begin{equotion}
 rrf_{i}=\frac{rf_{i}(Z)}{rf_{i}(V)}
-\end{align}
+    \end{equotion}
+\end{equ}
 \\
 
 
@@ -139,33 +139,49 @@ pro Wort 500\\
 
 Vergleicht man die 100 höchsten\footnote{Merkmal der Gattung Lyrik.} und niedrigsten\footnote{Merkmal der Gattung Epik.} Zetawerte der Adjektive der beiden Korpora, ist zu erkennen, dass die Verteilung der Zetawerte auf der Seite der Lyrik eindeutiger sind. Was eine leichte Tendenz der Adjektive zur Gattung Lyrik allgemein erkennen lässt. Diese Tendenz ist jedoch nicht eindeutig genug, um sie im Folgenden von den Untersuchung auf Grund eines Rauschen ausschließen zu können. Außerdem scheinen auf der Seite der Lyrik mehr emotionsbehaftete Adjektive zu liegen.
 
-Bei der Liste \textit{Emotionen}, liegt eine deutliche Tendenz der Emotionswörter zur Gattung \textit{Lyrik} vor. Insbesondere die Wörter \textit{Herz}, \texint{Seele},  \textit{Liebe} und \textit{Glück} sprechen sind mit ihren Zetawerten eindeutig. Für \textit{Epik} liegen keine eindeutigenZetawerte vor. Da die Liste der Emotionswörter allerdings sehr knapp ist, ist eine weitereichendere Untersuchung notwendig. 
+Bei den Verben fällt auf, dass es sich beim eindeutigsten Verb der \textit{Epik} um den Sprechmarker \textit{sagen} handelt. Doch auch hier ist auffällig, dass es in der \textit{Lyrik} eindeutigere Zetawerte gibt. 
 
-Die Zetawerte der Erzählinstanz zeigen keine klaren Tendenzen.
+Die Verteilung der Substantive zeigt, ähnlich den Adjektiven, eine Tendenz hin zur \textit{Lyrik}. In beiden Fällen kann eine Untersuchung der relativen Häufigkeit sinnvoll sein. Auch eine Untersuchung der Zusammensetzung der Substantive ist sinnvoll, da es Tendenzen in Richtung Emotionswörter, Sprechmarker und Erzählung zu geben scheint.
 
 Die Untersuchung der Emotionen nach Plutchik (inklusive der Emotion Liebe) zeigt, dass nur das Emotionswort \textit{Liebe}\footnote{die Emotion \textit{Liebe}} explizit geäußert wird. Diese explizite Emotionsäußerung kann eindeutig der Gattung \textit{Lyrik} zugeordnet werden. Keine der Basisemotionen nach Plutchik weißt eindeutige Zetawerte der gattung \textit{Epik} auf.
 
-Eine ausführlichere Liste der Emotionen wurde als \textit{SentiWS} von blablabla??? erstellt und zugänglich gemacht. Sie beinhaltet positve, als auch negative Wörter, die Emotionen ausdrücken und besteht aus Verben, Adjektiven und Substantiven. Unter den 100  höchsten Zetawerten befinden sich sieben, die mit einem Wert über 0,3 eindeutig der \textit{Lyrik} zugeordnet werden können. Fünfundzwanzig haben mit Werten über 0,2 eine deutliche Tendenz und cicra fünfunddreißig haben mit Werten über 0,1 eine Tendenz zur \textit{Lyrik}. Auch auf Seiten der \textit{Epik} finden sich keine eindeutigen Zetawerte unter -0,3. Nur fünf unter -0,2 und weisen damit eine deutliche Tendenz auf und nur circa fünfzehn weisen mit Werten unter -0,1 eine Tendenz zur \textit{Epik} auf. Dies beweist eine deutliche Tendenz der Emotionswörter hin zur \textit{Lyrik} auf. Aus der Graphik geht die Verteilung von Substantiven, Adjektiven und Verben jedoch nicht hervor, sodass ein Rauschen noch ausgeschlossen werden muss.
+Bei der Liste \textit{Emotionen}, liegt eine deutliche Tendenz der Emotionswörter zur Gattung \textit{Lyrik} vor. Insbesondere die Wörter \textit{Herz}, \texint{Seele},  \textit{Liebe} und \textit{Glück} sprechen sind mit ihren Zetawerten eindeutig. Für \textit{Epik} liegen keine eindeutigenZetawerte vor. Da die Liste der Emotionswörter allerdings sehr knapp ist, ist eine weitereichendere Untersuchung notwendig. 
 
-Die Untersuchung der Pronomen ergibt, dass \textit{Lyrik} die Pronomen \textit{mein}, \textit{euer}, \textit{sein}, \textit{du}, \textit{unser} und \textit{wir} Tendenzen zur \textit{Lyrik} aufweisen. Eine klare Aussage bezüglich der Sprecher lässt sich hieraus jedoch nicht ziehen. 
+
+Eine ausführlichere Liste der Emotionen wurde als \textit{SentiWS} von blablabla??? erstellt und zugänglich gemacht. Sie beinhaltet positve, als auch negative Wörter, die Emotionen ausdrücken und besteht aus Verben, Adjektiven und Substantiven. Unter den 100  höchsten Zetawerten befinden sich sieben, die mit einem Wert über 0,3 eindeutig der \textit{Lyrik} zugeordnet werden können. Fünfundzwanzig haben mit Werten über 0,2 eine deutliche Tendenz und cicra fünfunddreißig haben mit Werten über 0,1 eine Tendenz zur \textit{Lyrik}. Auch auf Seiten der \textit{Epik} finden sich keine eindeutigen Zetawerte unter -0,3. Nur fünf unter -0,2 und weisen damit eine deutliche Tendenz auf und nur circa fünfzehn weisen mit Werten unter -0,1 eine Tendenz zur \textit{Epik} auf. Dies beweist eine deutliche Tendenz der Emotionswörter hin zur \textit{Lyrik} auf. Aus der Graphik geht die Verteilung von Substantiven, Adjektiven und Verben jedoch nicht hervor, sodass ein Rauschen noch ausgeschlossen werden muss.
 
 Die Zetawerte der Liste \textit{Sprechmarker} verdeutlicht, dass diese deutlich der \textit{Epik} zuegordnet werden können. Die Gattung der \textit{Lyrik} weist keine Werte über 0,1, auf und bei den obersten Sprechmarkern handelt es sich um emotionsbehaftete Verben wie \textit{klagen} und \textit{schluchzen}. Allerdings fällt die Kategorisierung der Sprechmarker nicht so eindeutig aus wie erhofft, da auf Seiten der \textit{Epik} nur \textit{sagen} mit einem Wert von -0,34 eindeutig ist. Dennoch ist eine deutliche Tendenz zu erkennen.
 Die genauere Untersuchung der typischen Sprechmarker in der Liste \textit{SprechmarkerKurz} zeigt, dass die gängigen Sprechmarker \textit{sagen}, \textit{fragen}, \textit{sprechen} und \textit{antworten} der \textit{Epik} zuegordnet werden können. 
 
-Die Verteilung der Substantive zeigt, ähnlich den Adjektiven, eine Tendenz hin zur \textit{Lyrik}. In beiden Fällen kann eine Untersuchung der relativen Häufigkeit sinnvoll sein. Auch eine Untersuchung der Zusammensetzung der Substantive ist sinnvoll, da es Tendenzen in Richtung Emotionswörter, Sprechmarker und Erzählung zu geben scheint.
+Die Untersuchung der Pronomen ergibt, dass \textit{Lyrik} die Pronomen \textit{mein}, \textit{euer}, \textit{sein}, \textit{du}, \textit{unser} und \textit{wir} Tendenzen zur \textit{Lyrik} aufweisen. Eine klare Aussage bezüglich der Sprecher lässt sich hieraus jedoch nicht ziehen. 
 
-Bei den Verben fällt auf, dass es sich beim eindeutigsten Verb der \textit{Epik} um den Sprechmarker \textit{sagen} handelt. Doch auch hier ist auffällig, dass es in der \textit{Lyrik} eindeutigere Zetawerte gibt. 
+Die Zetawerte der Erzählinstanz zeigen keine klaren Tendenzen.
 \\
 
 
 
+\textbf{Zwischenfazit}
 
 -> Emotionen  sowohl eindeutiger, als auch häufiger bei Lyrik. Adjektive sind generell emotionaler, können deshalb ausgeschlossen werden von der Untersuchung der Unterschiede, da sie rauschen. 
 -> Erzählinstanz konnte überhaupt nicht nachgewiesen werden -> wir suchen falsch
 -> Sprechmarker sowohl eindeutiger, als auch häufiger in Epik 
 -> Anführungszeichen/direkte Rede eindeutig Epik
--> die Hypothesen der Gattungsmerkmale konnte bis auf die Sprechinstanz nachgewiesen werden. 
+-> die Hypothesen der Gattungsmerkmale konnte bis auf die Sprechinstanz nachgewiesen werden.\\
 
+Autoren-Korpus\\
+
+Im Vergleich zum Hauptkorpus  weist der Autorenkorpus eine allgemein ähn\-lich\-e Verteilung der Merkmale auf, die  Zetawerte sind jedoch weniger eindeutig. Da die Länge der Korpora stark unterschiedlich ist, lässt sich ein Rauschen auf Grund der Korpuslänge nicht ausschließen. Die Abgrenzung wird insbesondereauf der Seite der \emph{Lyrik} weniger eindeutig. Die Tendenzen bleiben allerdings bestehen.
+
+Bei der Betrachtung der einzelnen Merkmale pro Wort fällt auf, dass die Verteilungen auf den ersten Blick identisch wirken. So bleibt die Verteilung der Zetawerte nahezu gleich, die Werte weisen allerdings Unterschiede auf. So liegen bei den Wörtern der \emph{Emotionen} Liste Zetawerte von 0,35 beziehungsweise -0,075 im Autorenkorpus vor, im Hauptkorpus liegen die Werte bei 0,4 und -0,08. Auch die jeweils eindeutigsten Wörter für \emph{Lyrik} und \emph{Epik} sind nahezu deckungsgleich, nur ihre Reihenfolge weicht ab. 
+
+Diese Deckungsgleichheit liegt bei den Adjektiven, der Liste der Emotionen und den Substantiven  vor. Die Liste der \emph{SentiWS}-Emotionen zeigt bei den postiven Zetawerten eine identische Verteilung,  bei den negativen Werten jedoch weniger Ausreißer und Extremwerte und so eine flachere Kurve. Der Hauptkorpus hat einen größeren Bruch nach den fünf eindeutigsten Werten. Doch auch hier sind die Wörter nur durch ihre genaue Reihenfolge zu unterscheiden. 
+
+Bei der Liste der Sprechmarker sind die Werte von 0,3 und -0,4 im Gegensatz zum Hauptkorpus mit 0,1 und -0,35 im Autorenkorpus eindeutiger. Die Zetawerte im Autorenkorpus sind bei den postiven Werten der \emph{Lyrik} höher und weisen hier eine größere Eindeutigkeit zu, wohingegen die Hypothese der Eindeutigkeit der Sprechmarker für \emph{Epik} im Hauptkorpus eher bestätigt wird. Auch hier muss in einer weiteren Analyse das Rauschen der Korpusgröße ausgeschlossen werden.
+
+Die merkmalspezifischen Wörter und ihre Verteilung innerhalb der \emph{most frequent words} im Autorenkorpus weicht kaum von der Verteilung innerhalb des Hauptkorpus ab, da die Verteilung der Wörter innerrhalb des Merkmals kaum Differenzen aufweist. Nur die grundsätzlichen Werte der \emph{most frequent words} weichen, vermutlich auf Grund der Korpusgröße, voneinander ab. Einzig die Cluster der \emph{SentiWS}-Emotionen in der Epik, ist im Hauptkorpus minimal klarer zu erkennen. 
+\\
+
+\textbf{Zwischenfazit}
 
 ZETA IN FONTANE
 alle Merkmale: Sprechmarker, Plutchik, Anf, alle haben sehr kleine Werte

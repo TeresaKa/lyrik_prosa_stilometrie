@@ -54,7 +54,7 @@ class Zscores():
         return zscores
 
 
-poems = pd.read_csv('../corpus/0_csv_fuer_delta/fontane_corpus_gesamt.csv', index_col=[0])
+poems = pd.read_csv('../corpus/0_csv_fuer_delta/hauptcorpus_gesamt.csv', index_col=[0])
 z = Zscores(poems)
 zscores = z.calculate_zscores()
-zscores.to_csv('../results/delta/zscores_fontane.csv')
+zscores.to_csv('../results/delta/zscores_hauptcorpus.csv')
