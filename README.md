@@ -3,9 +3,11 @@
 Ein Projekt im Rahmen des Kurses 'Stilometrie' an der Julius-Maximilians-Universität Würzburg, das versucht, Texte der Lyrik und Epik anhand von inhaltlichen Gattungsmerkmalen mithilfe zweier grundlegender stilometrischer Methoden voneinander abzugrenzen.
 
 ![wordcloud_epik](https://user-images.githubusercontent.com/44951286/87776185-aa05ad80-c827-11ea-8f4f-d6cabb88ae41.png)
+
 Wordcloud des Epikkorpuses.
 
 ![wordcloud_lyrik](https://user-images.githubusercontent.com/44951286/87776214-b68a0600-c827-11ea-8a37-281834fd9ebf.png)
+
 Wordcloud des Lyrikkorpuses.
 
 ## Ordnerstruktur
@@ -20,7 +22,7 @@ Wordcloud des Lyrikkorpuses.
 
     
 ## Aufteilung der Arbeit
-### Pia Henning
+#### Pia Henning
 - Gattungsmerkmale
 - Exkurs: Emotionen
 - Zeta-Theorie
@@ -29,7 +31,7 @@ Wordcloud des Lyrikkorpuses.
     - Autorenkorpus (Zeta und Delta)
     - Lyrik: Aufbau und Bereinigung
 
-### Teresa Kaiser
+#### Teresa Kaiser
 - Datenexploration
 - Exkurs: Direkte Rede
 - Delta-Theorie
@@ -39,6 +41,6 @@ Wordcloud des Lyrikkorpuses.
     - Epik: Aufbau und Bereinigung
 
 
-### Gemeinsam
+#### Gemeinsam
 - Einleitung
 - Fazit
