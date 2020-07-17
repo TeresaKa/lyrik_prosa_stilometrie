@@ -2,10 +2,8 @@
 
 Ein Projekt im Rahmen des Kurses 'Stilometrie' an der Universität Würzburg, das versucht, Texte der Lyrik und Epik anhand von inhaltlichen Gattungsmerkmalen mithilfe zweier grundlegender stilometrischer Methoden voneinander abzugrenzen.
 
-![wordcloud_epik](https://github.com/TeresaKa/lyrik_prosa_stilometrie/tree/master/results/dataexploration/wordcloud_epik.png?raw=True)
-
-
-![wordcloud_lyrik](https://github.com/TeresaKa/lyrik_prosa_stilometrie/tree/master/results/dataexploration/wordcloud_lyrik.png?raw=True)
+![wordcloud_epik](https://user-images.githubusercontent.com/44951286/87776185-aa05ad80-c827-11ea-8f4f-d6cabb88ae41.png)
+![wordcloud_lyrik](https://user-images.githubusercontent.com/44951286/87776214-b68a0600-c827-11ea-8a37-281834fd9ebf.png)
 
     .
     ├── corpus # Enthält vier verwendete Korpora, sowie CSV-Dateien mit Metadaten.
