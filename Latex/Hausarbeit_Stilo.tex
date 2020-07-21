@@ -26,18 +26,29 @@
 
 \begin{document}
 %opening
+\pagenumbering{gobble}
+	\includepdf{Deckblatt_Kaiser.pdf}
+
+\thispagestyle{empty}
+\newpage
+
 \title{Gattungszuordnung anhand inhaltlicher Merkmale mit Hilfe gängiger stilometrischer Methoden}
 \author{Pia Henning und Teresa Kaiser}
-
 \maketitle
+\newpage
 \tableofcontents
 \newpage
 \listoffigures
+
 \newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
 \section{Einleitung}
 Stilometrische Verfahren sind ein gängiges Mittel in der computergestützten Literaturwissenschaft. Obwohl sie zur Beantwortung verschiedener Forschungsfragen geeignete Methodiken darstellen, werden sie meist für die Autorschaftsattribution eingesetzt. So konnte beispielsweise die Autorschaft von J. K. Rowling, bei dem unter Pseudonym veröffentlichten Roman \emph{The Cuckoo's Calling}, nachgewiesen werden. Auch vor Gericht haben stilometrische Analysen Gewicht, wie bei der Asylverhandlung von \glqq Bilbo Baggins\grqq \citep{Juola2015}.
 
-Die Autorschaftsattribution mit Hilfe stilometrischer Methoden anhand inhaltlicher Merkmale generiert in vielen Fällen zuverlässige Ergebnisse. Besonders gut funktionieren sie erfahrungsgemäß, wenn Störvariablen wie Gattung, Genre, Epoche, Alter und Geschlecht des Autors bei der Korpuserstellung herausgefiltert werden. Während zu dieser Zuordnung zu Autoren viele Forschungsergebnisse vorliegen, ist die stilometrische Zuordnung zu Gattungen, Genre etc. kaum erforscht. Bei ent\-sprech\-en\-dem Korpusaufbau sollte dies allerdings, so die Annahme, gleichermaßen durchführbar sein. Da die Zuweisung zu Gattungen als Basiskategorisierung literarischer Texte gilt und deshalb von hoher Wichtigkeit für die literarische Forschung ist, untersucht die vorliegende Arbeit die computergestützte Unterscheidung nach Gattungszugehörigkeit. 
+Die Autorschaftsattribution mit Hilfe stilometrischer Methoden anhand inhaltlicher Merkmale generiert in vielen Fällen zuverlässige Ergebnisse. Besonders gut funktionieren sie erfahrungsgemäß, wenn Störvariablen wie Gattung, Genre, Epoche, Alter und Geschlecht des Autors bei der Korpuserstellung herausgefiltert werden. Während zur Zuordnung zu Autoren viele Forschungsergebnisse vorliegen, ist die stilometrische Zuordnung zu Gattungen, Genre etc. kaum erforscht. Bei ent\-sprech\-en\-dem Korpusaufbau sollte dies allerdings, so die Annahme, gleichermaßen durchführbar sein. Da die Zuweisung zu Gattungen als Basiskategorisierung literarischer Texte gilt und deshalb von hoher Wichtigkeit für die literarische Forschung ist, untersucht die vorliegende Arbeit die computergestützte Unterscheidung nach Gattungszugehörigkeit. 
 
 Es wird davon ausgegangen, dass lyrische und epische Texte anhand ihrer quantifizierbaren, inhaltlichen Merkmale voneinander abgrenzbar sind. Da hierzu kaum Forschungsarbeiten zugänglich sind, soll die stilometrische Analyse der Gattungszuordnung mit den Basisverfahren Zeta und Delta durchgeführt werden, um eine Grundlage für die weitere Forschung zu schaffen. Diese Methoden sind zudem interessant, da sie die Texte mit unterschiedlicher Herangehensweise auf Wortebene untersuchen. So betrachtet das Zeta die Eindeutigkeit der verwendeten Wörter nach Korpus, während das Delta die Zuordnung der einzelnen Texte anhand der häufigsten Wörter vornimmt. 
 
@@ -75,16 +86,37 @@ Da davon ausgegangen werden muss, dass das Autorensignal einen starken Einfluss 
 Manche Autoren, wie Fontane oder Keller, haben deutlich mehr Gedichte verfasst als andere, weshalb der Anteil ihrer Texte pro Gattung, was die Tokenanzahl betrifft, recht ausgeglichen ist. Die Analysen werden zeigen, ob der dadurch entstehende, etwas unregelmäßige Aufbau einen Einfluss auf die Ergebnisse hat. Mit Hinblick auf das Autorschaftssignal wird davon ausgegangen, dass durch das Vorkommen der Autoren in beiden Gattungen verhindert wird, dass ein Schriftsteller mit seinem individuellen Stil beispielsweise den Stil der Epik allgemein signifikant beeinflusst. Stattdessen tritt das Autorenrauschen dadurch in beiden Gattungen auf und führt somit, so die Hypothese, zu einer Art Noise, der in Epik und in Lyrik in ungefähr gleichmäßig auftritt und somit das Gesamtergebnis im Durchschnitt nicht verfälschend beeinflusst. \par 
 
 Um das Rauschen des Autorsignals noch weiter zu beobachten und eine Möglichkeit zu finden, es zu messen, werden die Analysen schließlich mit den verbleibenden beiden Korpora durchgeführt. Das Vergleichskorpus ist aus dem Hauptkorpus gesamplet und enthält damit ebenfalls eine recht hohe Anzahl an Autoren. Es wird zusammen mit dem Fontanekorpus analysiert, das lediglich die Texte von Fontane aus dem Autorenkorpus enthält. Dadurch entsteht der Versuch, die beiden oben vorgestellten Ansätze des Korpusaufbaus zu vereinen. Die Berechnungen werden mit vier unterschiedlichen Zusammensetzungen durchgeführt, womit versucht wird zu beobachten, ob und inwieweit das teilweise oder komplette Hinzufügen der Fontanetexte einen Einfluss auf die Ergebnisse nimmt. Zudem verfügt das Vergleichskorpus mit 6 Epik- und 2418 Lyriktexten über das gleiche Verhältnis an Dokumenten pro Gattung wie das Autorenkorpus. Durch die Varianz der Länge von Epiktexten, enthält das Autorenkorpus deutlich mehr Tokens. Da aber die Anzahl der Segmente jeweils an die Lyrik angepasst wird, entstehen am Ende sowohl für das Vergleichs- als auch für das Autorenkorpus ähnlich viele Segmente. Die Anzahl der Segmente im Vergleichskorpus wird zudem erst in Zusammensetzung mit dem Fontanekorpus angepasst, weshalb an dieser Stelle in Abbildung \ref{fig:Zusammenstellung_Korpora} zwei Werte aufgeführt sind. \par
+ 
 
-\begin{wrapfigure}{l}{0.6\textwidth}
+Ein Blick auf die rohen Textdaten gibt einen ersten Anhaltspunkt, der die Hypothese, dass Epik und Lyrik auf Ebene der Inhaltswörter voneinander abgrenzbar sind, unterstützt. Mithilfe einer PCA werden in Abbildung \ref{fig:PCA_mfw} die 1000 häufigsten Wörter im Hauptkorpus auf zwei Hauptkomponenten reduziert. Die orangen Datenpunkte, die für Epik stehen, grenzen sich allein anhand dieser räumlichen Darstellung der Features recht deutlich ab. Anhand dieses ersten Anhaltspunktes ergibt sich die Nachforschung zu weiteren inhaltlichen Merkmalen, die die beiden Gattungen individuell identifizierbar machen.\par 
+
+\begin{wrapfigure}{h}{0.6\textwidth}
 	\includegraphics[width=0.6\textwidth]{pca_mfw.png}
 	\caption{PCA mit den 1000 most frequent words des Hauptkorpus.}
 	\label{fig:PCA_mfw}
 \end{wrapfigure}
 
-Ein Blick auf die rohen Textdaten gibt einen ersten Anhaltspunkt, der die Hypothese, dass Epik und Lyrik auf Ebene der Inhaltswörter voneinander abgrenzbar sind, unterstützt. Mithilfe einer PCA werden in Abbildung \ref{fig:PCA_mfw} die 1000 häufigsten Wörter im Hauptkorpus auf zwei Hauptkomponenten reduziert. Die orangen Datenpunkte, die für Epik stehen, grenzen sich allein anhand dieser räumlichen Darstellung der Features recht deutlich ab. Anhand dieses ersten Anhaltspunktes ergibt sich die Nachforschung zu weiteren inhaltlichen Merkmalen, die die beiden Gattungen individuell identifizierbar machen. Eine Überlegung führt zur Emotionalität, die in den Texten ausgedrückt wird und die besonders Gedichte auszeichnet. Um diese Annahme zu verfolgen, bietet es sich an die Korpora mithilfe des Tools SENTTEXT zu analysiern. Die Liste der Emotionen von \textit{SentiWS} \citep{Sentiws} ist stark von Polarität geprägt und beinhaltet besonders auch Wörter, die den impliziten Ausdruck von Gefühl betonen. \par 
+Eine Überlegung führt zur Emotionalität, die in den Texten ausgedrückt wird und die besonders Gedichte auszeichnet. Um diese Annahme zu verfolgen, bietet es sich an die Korpora mithilfe des Tools \textit{SentText} zu analysieren. Die Liste der Emotionen von \textit{SentiWS} \citep{Sentiws}, die dafür verwendet wird, ist stark von Polarität geprägt. Betrachtet man das Hauptkorpus hinsichtlich der Verteilung dieser Polarität, zeigt sich, dass zwischen Epik und Lyrik keine signifikanten Unterschiede zu verzeichnen sind. Da die vorliegende Forschungsfrage keine Sentiment Analyse beinhaltet, ist diese Beobachtung nicht ausschlaggebend. Für die Worthäufigkeiten jedoch kristallisiert sich ein tiefer liegender Unterschied heraus. Der Wertebereich der Frequenz selbst weist keine auffälligen Schwankungen zwischen den Gattungen auf. Untersucht man diese häufigsten Wörter hingegen inhaltlich, wird deutlich, dass Epik besonders auf Wörtern basiert, die den impliziten Ausdruck von Gefühl betonen, während in lyrischen Texten explizite Emotionswörter verwendet werden \ref{fig:sentiwsepik_cloud, fig:sentiwslyrik_cloud}. Auch für die anderen hier weiterhin verwendeten Korpora entstehen ähnliche Resultate. Deshalb dienen die Ergebnisse aus \textit{SentText} zunächst als Bestätigung, dass bestimmte Merkmale spezifisch für eine Gattung stehen können. Im Folgenden wird diese Annahme theoretisch untersucht und unterstützt. Darauf aufbauend wird schließlich die exakten Featureliste, die für die stilometrischen Analysen verwendet werden soll, ausgewählt.\par 
 
-Die Analyse zeigt, dass für die Distinktivität von Lyrik aber eher explizite Emotionswörter geeignet sind. Deshalb dient die Analyse mit \textit{SentText} zunächst nur als Bestätigung, dass bestimmte Merkmale spezifisch für eine Gattung stehen können. Die exakten Features, die für die stilometrischen Analysen verwendet werden sollen, werden daher aber erst im Folgenden ausgewählt, nachdem die Gattungen Epik und Lyrik beleuchtet wurden.\par 
+
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{haupt_epik_wordcloud_pos}
+				\caption{Häufigste positive Emotionen der SentiWS Liste in Epiktexten des Hauptkorpus.}
+					\label{fig:sentiwsepik_cloud}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{haupt_lyrik_wordcloud_pos}
+			\caption{Häufigste positive Emotionen der SentiWS Liste in Lyriktexten des Hauptkorpus.}
+				\label{fig:sentiwslyrik_cloud}
+	\end{minipage}
+\end{figure}
+
 
 
 \section{Gattungsmerkmale}
@@ -96,7 +128,8 @@ Lyrische Texte sind Verstexte, die nicht episch oder dramatisch sind. Üblicherw
 
 Eine Schwierigkeit bei der Definition von lyrischen Merkmalen ist die Vielzahl der Gedichtformen, die jeweils starke eigene Merkmale aufweisen \citep[vgl.][S. 119]{Krah2006}. \par 
 
-Epische Texte zeichnen sich im Gegensatz dazu durch die Erzählinstanz und Erzählgegenstand aus. Sie werden der erzählenden Literatur zugeordnet und können sowohl in Prosa als auch in Versform verfasst sein. Auch der Umfang ist nicht ausschlaggebend \citep[vgl.][S. 195]{SchweikleGunther;Burdorf2007}. \par 
+Epische Texte zeichnen sich im Gegensatz dazu durch die Erzählinstanz und Erzählge\-gen\-stand aus. Sie werden der erzählenden Literatur zugeordnet und können sowohl in Prosa als auch in Versform verfasst sein. Auch der Umfang ist nicht ausschlaggebend \citep[vgl.][S. 195]{SchweikleGunther;Burdorf2007}. \par 
+
 
 Da nicht nur Gattungen, sondern auch die literaturwissenschaftlichen Epochen und Strömungen Gemeinsamkeiten und Merkmale aufweisen \citep[vgl.][S. 274]{Krah2006}, werden zur Analyse die Korpora mit Texten der gleichen Zeitspanne aufgebaut. Hierfür wurde das 19. Jahrhundert gewählt, da zu dieser Zeit die gängige Einteilung der Gattungen kanonisiert wurde \citep[vgl.][S. 368]{Krah2006}.
 
@@ -105,27 +138,29 @@ Da nicht nur Gattungen, sondern auch die literaturwissenschaftlichen Epochen und
 \subsection{Emotionen und Emotionsklassifikation}
 Beim Hauptmerkmal der Lyrik auf inhaltlicher Ebene handelt es sich um Emotionen. Hierbei wichtig ist die Begriffsklärung der Emotion und Auseinandersetzung mit der sprachlichen Darstellung. Da Emotionen unseren Alltag, Handeln und den zwischenmenschlichen Umgang prägen, besitzt jeder eine Vorstellung von Emotion, dennoch fällt das Erkennen und Ausdrücken häufig schwer. Es handelt sich um ein komplexes Zusammenspiel subjektiver und objektiver Faktoren, mit Auswirkungen auf unser neuronales System \citep[vgl.][S. 355]{KleinginnaPaulR;Kleinginna1981}. Dies erschwert die Untersuchung und klare Definition des Emotionsbegriffs. \par 
 
-\begin{wrapfigure}{l}{0.5\textwidth}
-	\includegraphics[width=0.5\textwidth]{plutchik_wheel.png}
+Eine Minimaldefinition erleichtert die Herangehensweise und Untersuchung. Das automatisierte Erkennen von Emotionen fällt bei expliziten Emotionen wesentlich leichter, da hier die Emotion durch ein prototypisches Emotionswort explizit thematisiert wird \citep[vgl.][S. 34-41; S. 76-84]{Hillebrandt2011}. \par 
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\includegraphics[width=0.4\textwidth]{plutchik_wheel.png}
 	\caption{Plutchiks Wheel of Emotions.}
 	\label{Wheel}
 \end{wrapfigure}
 
-Eine Minimaldefinition erleichtert die Herangehensweise und Untersuchung. Das automatisierte Erkennen von Emotionen fällt bei expliziten Emotionen wesentlich leichter, da hier die Emotion durch ein prototypisches Emotionswort explizit thematisiert wird \citep[vgl.][S. 34-41; S. 76-84]{Hillebrandt2011}. \par 
+Die Vielzahl an Emotionen wurden im Laufe der Zeit von verschiedenen Wissenschaftlern aus diversen Disziplinen klassifiziert. Eines der bekannten Klassifikationssysteme stammt von Robert Plutchik, der die Emotionen in einem Rad der Emotionen zusammenfasst (Abbildung {Wheel}. Er benennt acht Primäremotionen (\textit{Wut}, \textit{Ekel}, \textit{Trauer}, \textit{Begeisterung}, \textit{Panik}, \textit{Erwartung}, \textit{Überraschung}, \textit{Vertrauen}), die in zwei weiteren Etappen abgestuft werden, wobei die Intensität der Emotionen kontinuierlich abnimmt. Ähnliche Emotionen sind in Plutchiks Darstellung benachbart \citep[vgl.][S. 40-122]{Plutchik}. 
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-	\includegraphics[width=0.5\textwidth]{Plutchik_Dyads.png}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\includegraphics[width=0.4\textwidth]{Plutchik_Dyads.png}
 	\caption{Plutchiks Übersicht zu Dyaden der Emotionen.}
 	\label{fig:Dyads}
 \end{wrapfigure}
 
-Die Vielzahl an Emotionen wurden im Laufe der Zeit von verschiedenen Wissenschaftlern aus diversen Disziplinen klassifiziert. Eines der bekannten Klassifikationssysteme stammt von Robert Plutchik, der die Emotionen in einem Rad der Emotionen zusammenfasst (Abbildung {Wheel}. Er benennt acht Primäremotionen (\textit{Wut}, \textit{Ekel}, \textit{Trauer}, \textit{Begeisterung}, \textit{Panik}, \textit{Erwartung}, \textit{Überraschung}, \textit{Vertrauen}), die in zwei weiteren Etappen abgestuft werden, wobei die Intensität der Emotionen kontinuierlich abnimmt. Ähnliche Emotionen sind in Plutchiks Darstellung benachbart \citep[vgl.][S. 40-122]{Plutchik}. 
 
 Neben den primären Emotionen hat Plutchik auch primäre, sekundäre und tertiäre Emotionspaare definiert, wobei die Emotion eines primären Emotionspaars aus zwei direkt benachbarten Emotionen gebildet wird, sekundäre Emotionspaare aus zwei Feldern entfernten Emotionen besteht und tertiäre Emotionspaare drei Felder voneinander entfernt sind. Vier Felder entfernte und somit gegensätzliche Emotionen sind gegenteilige Emotionspaare (siehe Abbildung \ref{fig:Dyads}) \citep[vgl.][S. 40-122]{Plutchik}.\par 
 
 Das Ziel Plutchiks Konzepts ist es, alle evolutionären Level der Emotionen aller Tiere, inklusive Menschen, abzubilden und diese Emotionen als Grundlage zur Bildung weiterer Emotionen darzustellen. Das Modell ist für die Analyse von Emotionen in der Literatur geeignet, da es die wichtigsten und somit stärksten Emotionen abbildet \citep[vgl.][S. 40-122]{Plutchik}. \par 
 
-Aus diesem Grund werden für die nachfolgende Analyse der Emotionen in Lyrik und Epik die acht Basisemotionen Wut, Ekel, Trauer, Begeisterung, Panik, Erwartung, Überraschung, Vertrauen als Emotionswörter herangezogen. Der Liste der Emotionswörter VERLINKEN wird zusätzliche ihre adjektivische und gegebenenfalls verbale Verwendung hinzugefügt, sowie die Emotion \textit{Liebe}, da sie durch Liebeslyrik und Liebesromane bezeichnend und namensgebend sowohl für Epik, als auch Lyrik ist. 
+Aus diesem Grund werden für die nachfolgende Analyse der Emotionen in Lyrik und Epik die acht Basisemotionen Wut, Ekel, Trauer, Begeisterung, Panik, Erwartung, Überraschung, Vertrauen als Emotionswörter herangezogen. Der Liste der Emotionswörter wird zusätzliche ihre adjektivische und gegebenenfalls verbale Verwendung hinzugefügt, sowie die Emotion \textit{Liebe}, da sie durch Liebeslyrik und Liebesromane bezeichnend und namensgebend sowohl für Epik, als auch Lyrik ist. 
  
 
 \subsection{Direkte Rede}
@@ -145,14 +180,13 @@ Bei dem Zeta-Maß handelt es sich um ein Maß für Distinktivität, der sogenann
 
 Aufgrund der zuvor ermittelten Gattungsmerkmale, ist davon auszugehen, dass die Emotionen, Emotionswörter und Emotionstagger, wie beispielsweise \textit{fühlen}, charakteristisch dem Lyrik-Korpus zugesprochen werden können, wohingegen Merkmale der direkte Rede, wie Anführungszeichen und Verben der direkten Rede, charakteristisch dem Epik-Korpus zugeordnet werden können. \par 
 
-Die charakteristische Zuordnung wird durch das Verhältnis der relative Häufigkeiten des Merkmals in beiden Partitionen ermittelt (\textit{rrf}). Dafür wird für jedes Merkmal \textit{i} die relative Häufigkeit \textit{rf} in der Zielpartition \textit{Z} und der Vergleichspartition \textit{V} ermittelt. Die \textit{rf} der Zielpartition durch den Wert der Vergleichspartition dividiert \citep[vgl.][S. 79 f.]{SchoechZeta}.
+Die charakteristische Zuordnung wird durch das Verhältnis der relative Häufigkeiten des Merkmals in beiden Partitionen ermittelt (\textit{rrf}). Dafür wird für jedes Merkmal \textit{i} die relative Häufigkeit \textit{rf} in der Zielpartition \textit{Z} und der Vergleichspartition \textit{V} ermittelt. Die \textit{rf} der Zielpartition durch den Wert der Vergleichspartition dividiert \citep[vgl.][S. 79 f.]{SchoechZeta}.\par
 
 \begin{align}
 rrf_{i}=\frac{rf_{i}(Z)}{rf_{i}(V)}
 \end{align}
-\\
 
-Für die Analyse durch das Zeta-Maß, werden beide Partitionen in gleich lange Segmente aufgeteilt. Wodurch eine Untersuchung sowohl von langen als auch kurzen Texten möglich ist. Es folgt keine Erhebung der Häufigkeit eines Merkmals pro Segment, sondern die Anzahl der Segmente, in denen das Merkmal mindestens einmal vorkommt (\textit{document propotion = dp}). Der resultierende Wert gibt an, wie konsistent das Merkmal in den unterschiedlichen Partitionen Verwendung findet \citep[vgl.][S. 79 f.]{SchoechZeta}.\\
+Für die Analyse durch das Zeta-Maß, werden beide Partitionen in gleich lange Segmente aufgeteilt. Wodurch eine Untersuchung sowohl von langen als auch kurzen Texten möglich ist. Es folgt keine Erhebung der Häufigkeit eines Merkmals pro Segment, sondern die Anzahl der Segmente, in denen das Merkmal mindestens einmal vorkommt (\textit{document propotion = dp}). Der resultierende Wert gibt an, wie konsistent das Merkmal in den unterschiedlichen Partitionen Verwendung findet \citep[vgl.][S. 79 f.]{SchoechZeta}.\par
 
 
 \begin{equ}[h]
@@ -162,7 +196,7 @@ Für die Analyse durch das Zeta-Maß, werden beide Partitionen in gleich lange S
 \end{equ}
 
 
-Dafür wird für jedes Merkmal \textit{i} erhoben in wie vielen Segmenten von \textit{Z} und \textit{V} es jeweils vorkommt (\textit{document frequency = df}). Diese Werte werden zu Anteilen umgerechnet (\textit{n(Z)},\textit{n(V)}). Die Zeta-Formel erhält man durch Subtraktion des Anteils der Zielpartition mit dem Anteil der Vergleichspartition \citep[vgl.][S. 79 f.]{SchoechZeta}.\\
+Dafür wird für jedes Merkmal \textit{i} erhoben in wie vielen Segmenten von \textit{Z} und \textit{V} es jeweils vorkommt (\textit{document frequency = df}). Diese Werte werden zu Anteilen umgerechnet (\textit{n(Z)},\textit{n(V)}). Die Zeta-Formel erhält man durch Subtraktion des Anteils der Zielpartition mit dem Anteil der Vergleichspartition \citep[vgl.][S. 79 f.]{SchoechZeta}.\par
 
 	\begin{equ}
 		\begin{equation}
@@ -205,16 +239,16 @@ Die Delta-Werte werden in der vorliegenden Analyse für das aus zwei Textgattung
 	\label{fig:haupt_alle_merkmale}
 \end{wrapfigure}
 
-Betrachtet man die allgemeinen Zetawerte der einzelnen inhaltlichen Gattungsmerkmale für das Hauptkorpus \footnote{Es wurden Segmente mit einer Länge von 100, 500 und 1000 getestet und berechnet. Aufgrund der oben diskutierten Heterogenität der Textlängen werden nur die Ergebnisse für die Segmente mit je 500 Wörtern ausgewertet, da sie ein Mittelmaß zwischen kurzen und langen Texten darstellen} (siehe Abbildung  \ref{fig:haupt_alle_merkmale}), wird deutlich, dass Sprechmarker, sowohl in der langen, als auch der kurzen Liste eine Tendenz zur Epik aufweisen. Die Listen der Emotionen nach Plutchik und ihren Erweiterungen weisen eine Tendenz zur Lyrik auf, wohingegen die lange Liste \textit{SentiWS} ausgeglichen ist. Anführungszeichen, als Zeichen der direkten Rede, sind eindeutig der Epik zuweisbar. Somit werden die Hypothesen bezüglich der jeweiligen Zuweisung der Gattungsmerkmale weitestgehend bestätigt. Es ist jedoch deutlich, dass, außer bei der Zuordnung der direkten Rede, eine detailliertere Untersuchung nötig ist. Dafür werden im folgenden die Zetawerte pro Wort, pro Merkmal untersucht, da die Sprechmarker und \textit{SentiWS} Abweichungen aufweisen \footnote{Angelehnt an Schöchs Zetagrenzwert von 0,4 wurde hier aufgrund der kürzeren Segmentlänge ein Grenzwert von 0,3 bzw. -0,3 gewählt, um ein eindeutiges Ergebnis auszuweisen}.\par 
+Betrachtet man die allgemeinen Zetawerte der einzelnen inhaltlichen Gattungsmerkmale für das Hauptkorpus \footnote{Es wurden Segmente mit einer Länge von 100, 500 und 1000 getestet und berechnet. Aufgrund der oben diskutierten Heterogenität der Textlängen werden nur die Ergebnisse für die Segmente mit je 500 Wörtern ausgewertet, da sie ein Mittelmaß zwischen kurzen und langen Texten darstellen} (siehe Abb.  \ref{fig:haupt_alle_merkmale}), wird deutlich, dass Sprechmarker, sowohl in der langen, als auch der kurzen Liste eine Tendenz zur Epik aufweisen. Die Listen der Emotionen nach Plutchik und ihren Erweiterungen weisen eine Tendenz zur Lyrik auf, wohingegen die lange Liste \textit{SentiWS} ausgeglichen ist. Anführungszeichen, als Zeichen der direkten Rede, sind eindeutig der Epik zuweisbar. Somit werden die Hypothesen bezüglich der jeweiligen Zuweisung der Gattungsmerkmale weitestgehend bestätigt. Es ist jedoch deutlich, dass, außer bei der Zuordnung der direkten Rede, eine detailliertere Untersuchung nötig ist. Dafür werden im folgenden die Zetawerte pro Wort, pro Merkmal untersucht, da die Sprechmarker und \textit{SentiWS} Abweichungen aufweisen \footnote{Angelehnt an Schöchs Zetagrenzwert von 0,4 wurde hier aufgrund der kürzeren Segmentlänge ein Grenzwert von 0,3 bzw. -0,3 gewählt, um ein eindeutiges Ergebnis auszuweisen}.\par 
 
-\begin{wrapfigure}{l}{0.5\textwidth}
-	\includegraphics[width=0.5\textwidth]{haupt_stärkste_merkmale_boxplot.png}
+\begin{wrapfigure}{h}{0.45\textwidth}
+	\includegraphics[width=0.45\textwidth]{haupt_staerkste_merkmale_boxplot.png}
 	\caption{Übersicht der stärksten Merkmale im Hauptkorpus.}
-	\label{fig:haupt_stärkste_merkmale_boxplot}
+	\label{fig:haupt_staerkste_merkmale_boxplot}
 \end{wrapfigure}
 
 
-Auch der Boxplot bestätigt die aufgestellten Nullhypothesen und verdeutlicht, dass eine detailliertere Untersuchung nötig ist (siehe Abbildung \ref{fig:haupt_stärkste_merkmale_boxplot}.
+Auch der Boxplot bestätigt die aufgestellten Nullhypothesen und verdeutlicht, dass eine detailliertere Untersuchung nötig ist (siehe Abbildung \ref{fig:haupt_staerkste_merkmale_boxplot}. Vergleicht man die 100 höchsten\footnote{Merkmal der Gattung Lyrik.} und niedrigsten\footnote{Merkmal der Gattung Epik.} Zetawerte der Adjektive der beiden Korpora in Abbildung \ref{fig:haupt_adjektive} und \ref{fig:haupt_adjektive2}, ist zu erkennen, dass die Verteilung der Zetawerte auf der Seite der Lyrik eindeutiger sind, was eine leichte Tendenz der Adjektive zur Gattung Lyrik allgemein erkennen lässt. Diese Tendenz ist jedoch nicht eindeutig genug, um sie von den Untersuchung auf Grund eines Rauschen ausschließen zu können. Außerdem liegen auf der Seite der Lyrik mehr emotionsbehaftete Adjektive. \par 
 
 
 \begin{figure}{}
@@ -234,9 +268,6 @@ Auch der Boxplot bestätigt die aufgestellten Nullhypothesen und verdeutlicht, d
     \end{minipage}
 \end{figure}
 
-
-Vergleicht man die 100 höchsten\footnote{Merkmal der Gattung Lyrik.} und niedrigsten\footnote{Merkmal der Gattung Epik.} Zetawerte der Adjektive der beiden Korpora in Abbildung \ref{fig:haupt_adjektive} und \ref{fig:haupt_adjektive2}, ist zu erkennen, dass die Verteilung der Zetawerte auf der Seite der Lyrik eindeutiger sind, was eine leichte Tendenz der Adjektive zur Gattung Lyrik allgemein erkennen lässt. Diese Tendenz ist jedoch nicht eindeutig genug, um sie von den Untersuchung auf Grund eines Rauschen ausschließen zu können. Außerdem liegen auf der Seite der Lyrik mehr emotionsbehaftete Adjektive. \par 
-\newpage
 
 Bei den Verben fällt auf, dass es sich beim eindeutigsten Verb der Epik um den Sprechmarker \textit{sagen} handelt. Doch auch hier ist auffällig, dass es in der Lyrik eindeutigere Zetawerte gibt.  \par 
 
@@ -275,14 +306,14 @@ Eine ausführlichere Liste von Emotionswörtern wurde vom \textit{Projekt Deutsc
     \centering
     \begin{minipage}[b]{.45\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{haupt_sprechmarker_pro_wort.png}
+        \includegraphics[width=0.45\linewidth]{haupt_sprechmarker_pro_wort.png}
         \caption{Zetawerte der Sprechmarker des Hauptkorpus auf Seiten der Lyrik.}
         \label{haupt_sprechmarker}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{.45\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{haupt_sentiws_pro_wort2.png}
+        \includegraphics[width=0.45\linewidth]{haupt_sentiws_pro_wort2.png}
         \caption{Zetawerte der Sprechmarker des Hauptkorpus auf Seiten der Epik.}  
         \label{haupt_sprechmarker2}
     \end{minipage}
@@ -308,11 +339,11 @@ Da die Zetawerte lediglich angeben, wie distinktiv ein bestimmtes Wort für das 
 
 Die Kombination aus der Merkmalsliste der \textit{SentiWS} und der \textit{Emotionen} zeigt erwartungsgemäß keinen eindeutigen Unterschied zwischen den beiden Gattungen. Aufgrund der Polarität der Merkmalsliste und der Tatsache, dass besonders auch implizite Emotionsausdrücke enthalten sind, sind die Wörter in beiden Gattungen nicht nur mit hohem Zetawert, sondern auch mit recht großer Häufigkeit vertreten. Dennoch ist eine Tendenz zur Lyrik erkennbar mit 27 Emotionswörtern in den 100 häufigsten Wörtern, während es bei Epik nur 18 sind. Auffällig ist, dass bei Lyrik eher beschreibende Wörter vorkommen wie \textit{schön}, \textit{dunkel} und \textit{süß}, während bei Epik mehr Verben vertreten sind wie \textit{fühlen}, \textit{wagen}, \textit{führen} und \textit{verstehen}. Insgesamt ist festzustellen, dass bei Lyrik mehr Merkmalswörter im ersten Drittel der betrachteten häufigsten Wörter vertreten sind und verschiedene Wörter in den beiden Gattungen weiter vorne liegen, dabei die Häufigkeitswerte aber in einem ähnlichen Bereich liegen. \par 
 
-\begin{wrapfigure}{r}{0.4\textwidth}
-	\includegraphics[width=0.4\textwidth]{haupt_epik_sprechmarker_mfw.png}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{haupt_epik_sprechmarker_mfw.png}
 	\caption{Position von Sprechmarkern innerhalb der MFW der Epiktexte.}
 	\label{fig:haupt_sprechmarker_in_mfw}
-\end{wrapfigure}
+\end{figure}
 
 Deutlich auffälliger ist der Unterschied bei den Sprechmarkern \ref{fig:haupt_sprechmarker_in_mfw}. Während nur \textit{rufen} in den hundert häufigsten Wörtern der Lyrik vorkommt, zudem auch erst an fünfzigster Stelle, sind es bei der Epik sieben Sprechmarker. Am weitesten vorne sind \textit{rufen} und \textit{fragen} an Stelle neun und zehn, sowie etwas weiter hinten \textit{bitten} und \textit{antworten}. Hier scheinen also nicht nur die Zetawerte der Merkmalswörter, sondern auch deren Positionierung in den Most Frequent Words auf eine Zuordnung zur Epik hinzudeuten. 
 
@@ -336,14 +367,14 @@ Diese Deckungsgleichheit liegt bei den Adjektiven, der Liste der Emotionen und d
     \centering
     \begin{minipage}[b]{.45\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{autoren_sprechmarker_lang_pro_wort.png}
+        \includegraphics[width=0.45\linewidth]{autoren_sprechmarker_lang_pro_wort.png}
         \caption{Zetawerte der Sprechmarker des Autorenkorpus auf Seiten der Lyrik.}
         \label{autoren_sprechmarker}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{.45\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{autoren_sprechmarker_lang_pro_wort2.png}
+        \includegraphics[width=0.45\linewidth]{autoren_sprechmarker_lang_pro_wort2.png}
         \caption{Zetawerte der Sprechmarker des Autorenkorpus auf Seiten der Epik.} 
         \label{autoren_sprechmarker2}
     \end{minipage}
@@ -373,22 +404,20 @@ Besonders große Zetawerte eines einzelnen Autors scheinen also Einfluss auf das
 
 Auch hier ist es wieder von Interesse, die Positionierung der Merkmale innerhalb der Most Frequent Words zu betrachten. In der Lyrik des Vergleichskorpus liegen 28 Wörter aus \textit{SentiWS} und \textit{Emotionen} innerhalb der 100 häufigsten Wörter, während es bei Epik nur 14 sind \ref{fig:vergleich_klein_epik}. Zwar überschneidet sich die Reihenfolge der Wörter etwas, \textit{Herz} ist das erste gefolgt von \textit{schön}, allerdings ist ersteres in der Lyrik bereits das dritthäufigste Wort, in der Epik hingegen erst das dreiundzwanzigste. Bei den Sprechmarkern ist ein ähnliches, nur umgekehrtes Bild zu beobachten. Nur zwei sind in den MFW der Lyrik vertreten, wobei das emotionsbetonte \textit{singen} das häufigste ist. In der Epik hingegen sind acht Sprechmarker auch häufig verwendet. Wie bereits mehrfach beobachtet, liegen auch hier \textit{fragen} und \textit{rufen} vorne. Diese beiden Merkmale scheinen also recht zuverlässig für die jeweilige Gattung zu sprechen. \par 
 
-\begin{figure}{}
-	\centering
-	\begin{minipage}[b]{.45\linewidth}
+\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{vergleich_epik_sentiemo_mfw.png}
 		\caption{Emotionen in den MFW der Epik im kleinen Vergleichskorpus.}
 		\label{vergleich_klein_epik}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[b]{.45\linewidth}
+	\end{figure}
+
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{fontane_epik_sentiws+emotion_mfw.png}
 		\caption{Emotionen in den MFW von Fontanes Epik.} 
 		\label{fonane_epik}
-	\end{minipage}
-\end{figure}
+	\end{figure}
+
 
 Im Vergleichskorpus mit Fontanes Epiktexten ist eine sehr ähnliche Beobachtung zu machen, auch hier sind in Epik mehr Sprechmarker, in der Lyrik mehr Emotionen zu verzeichnen. Sogar die häufigsten Merkmale überschneiden sich. So sind erneut \textit{fragen} und \textit{rufen} die häufigsten Redeeinleitungen in der Epik, während \textit{Herz} und \textit{schön} in beiden Gattungen die häufigsten der Emotionswörter sind \ref{fonane_epik}. Lediglich \textit{alt} erscheint bei der Epik nun an erster Stelle, was wiederum auf den Einfluss von Fontanes Epik zurückzuführen ist. Auch dort ist das Wort an siebter Stelle der häufigsten Wörter zu finden und hat damit von sechsundzwanzigster Stelle im reinen Vergleichskorpus die neunte im kombinierten Korpus erreicht. Werden statt der Epik die Lyriktexte hinzugefügt, ist kaum eine Veränderung zu verzeichnen. Darauf weisen bereits die Ergebnisse weiter oben hin, in denen deutlich wurde, dass Fontanes Gedichte weniger von denen des Vergleichskorpus abweichen als der Roman. \par 
 
@@ -398,17 +427,17 @@ Die vorangegangenen Berechnungen haben ergeben, dass über alle Korpora hinweg E
 
 
 \subsection{Delta - Resultate}
-
+\subparagraph{Autorenkorpus} \quad \par 
 Die Berechnung der Deltas wird zunächst mit dem Autorenkorpus durchgeführt. Um ein erstes Verständnis für die Ergebnisse zu erlangen, ist eine Visualisierung der Normalverteilung der Deltawerte hilfreich \ref{fig:normalverteilung_genre}. Die dunklere Kurve, mit \textit{different} annotiert, gibt an, dass der abgebildete Deltawert das Resultat der Gegenüberstellung zweier Texte unterschiedlicher Gattung ist. Die hellere \textit{same}-Kurve steht umgekehrt für Datenpaare derselben Gattung. Beim Vergleich eines Lyrik- und eines Epiktextes fällt ein eindeutiger Peak bei 0 auf sowie eine steil abfallende Kurve, die sich innerhalb eines Wertebereichs von -0,2 und 0,2 für das Cosinusdelta bewegt. Die Kurve für Texte derselben Gattung ist hingegen sehr unregelmäßig, weist bei 0 ein Minimum auf und hat mehrere kleinere Peaks. Dabei bewegt sich ein Großteil der Kurve allerdings im selben Wertebereich wie die \textit{different}-Kurve \footnote{Der deutlich höhere Count für Deltawerte bei 0 für die \textit{different}-Kurve ist mit der großen Anzahl Texte, die analysiert werden, zu erklären. Jeder Text wird für das Delta mit jedem gegenübergestellt, weshalb deutlich häufiger das Label \glqq different \grqq vermerkt wird.}. Die grau schraffierte Fläche zeigt die Überschneidung der beiden Kurven an, die für eine erfolgreiche stilometrische Analyse möglichst gering sein sollte. Da hier die Schnittfläche aber zeigt, dass die Deltawerte sowohl für Datenpaare derselben als auch verschiedener Gattung fast identisch sind und keine klare Tendenz aufweisen. Das deutet darauf hin, dass eine Unterscheidung mithilfe von Deltaberechnungen für dieses Korpus eher ungeeignet ist. \par 
 
-\begin{wrapfigure}{l}{0.65\textwidth}
-	\includegraphics[width=0.65\textwidth]{autoren_delta_samedif_genre.png}
+\begin{wrapfigure}{l}{0.45\textwidth}
+	\includegraphics[width=0.45\textwidth]{autoren_delta_samedif_genre.png}
 	\caption{Normalverteilung der Deltawerte des Autorenkorpus für das Label Genre.}
 	\label{fig:normalverteilung_genre}
 	\end{wrapfigure}
 		
 
-Bevor diese Annahme bestätigt werden kann, müssen weitere Faktoren beachtet werden. Als Grundlage für das Delta dienen Z-Scores, die angeben, wie stark die Verwendung eines Wortes in einem Text im Verhältnis zu dessen Verwendung im gesamten Korpus abweicht. Sie werden zunächst für alle Wörter berechnet und dann abgeschnitten. In diesem Fall werden nur die 1000 häufigsten Wörter verwendet, die eine gesamten Wertespanne der Z-Scores zwischen -0,6 und 49 ergeben. Die unterdurchschnittliche Verwendung von Wörtern weicht also kaum vom Mittel ab, während andere Ausdrücke in bestimmten Texten signifikant häufiger als im restlichen Korpus zu verzeichnen sind. \par 
+Bevor diese Annahme be/-stä/-tigt werden kann, müssen weitere Faktoren beachtet werden. Als Grundlage für das Delta dienen Z-Scores, die angeben, wie stark die Verwendung eines Wortes in einem Text im Verhältnis zu dessen Verwendung im gesamten Korpus abweicht. Sie werden zunächst für alle Wörter berechnet und dann abgeschnitten. In diesem Fall werden nur die 1000 häufigsten Wörter verwendet, die eine gesamten Wertespanne der Z-Scores zwischen -0,6 und 49 ergeben. Die unterdurchschnittliche Verwendung von Wörtern weicht also kaum vom Mittel ab, während andere Ausdrücke in bestimmten Texten signifikant häufiger als im restlichen Korpus zu verzeichnen sind. \par 
 
 Für die vorliegende Arbeit sind die Wörter am interessantesten, die Teil der Gattungsmerkmale sind. Hierfür wird für jede Gattung der Durchschnitt der Z-Scores pro Wort gebildet. Von den Emotionswörtern sind 35 auch in den Z-Scores zu finden. Fast alle Werte liegen für Epiktexte im negativen Bereich, was bedeutet, dass die entsprechenden Wörter unterdurchschnittlich häufig verwendet werden. Den kleinsten Wert mit -0,3 weist dabei \textit{Herz} auf. Im Zusammenhang mit dem Wertebereich der Z-Scores zeigt sich, dass das Wort verhältnismäßig stark im Negativen liegt. Die positiven Werte sind dagegen mit höchstens 0,1 im Vergleich zum Maximum von 49 sehr klein und sprechen kaum dafür, dass sie typischerweise in Epiktexten verwendet werden. Dennoch ist interessant, dass teilweise einige der Wörter, die bei den Zetaanalysen als spezifisch für Epik erkannt wurden, auch hier im positiven Wertebereich liegen: \textit{Vertrauen} und \textit{Freude}. Ein Problem ist aber, dass die Emotionswörter für Lyriktexte nicht erkennbar sind, die meisten Werte betragen 0 oder sind minimal. Möglicherweise ist diese Beobachtung darin begründet, dass deutlich mehr lyrische Texte im Korpus sind, damit großen Einfluss auf die mittlere Verwendung von Wörtern haben und dadurch nicht stark von diesem Mittel abweichen. \par 
 
@@ -448,6 +477,7 @@ Vergleicht man nun die 100 größten Cosinus-Werte für das rohe Autorenkorpus u
 
 Noch deutlicher wird der Unterschied zwischen rohen Texten und Segmenten, wenn als Distanzmaß die Manhattan-Distanz statt des Cosinus-Maßes verwendet wird. Während bei den ursprünglichen Texten weiterhin alle Dokumente mit geringer Distanz zueinander nur einer Gattung zuzuordnen sind, entsteht bei den Segmenten ein gemischteres Bild. Zwar können teilweise einige Segmente mit ähnlichem Distanzwert einer Gattung zugeordnet werden. Diese Manhattanwerte liegen aber so nah an denen der anderen Gattung, dass keine klare Unterscheidung möglich ist. Durch die Segmentierung geht also wohl zu viel Information verloren. Betrachtet man schließlich für das Korpus mit den Gesamttexten die Zuordnung zu Autoren, zeigt sich wiederum ein ungleichmäßiges Bild. Das Autorsignal kann nicht vollständig eliminiert werden, immer wieder sind Texte eines Autors aufgrund des Cosinuswertes zusammen gruppiert. Besonders Kellers Gedichte scheinen einander sehr ähnlich zu sein. Da aber dennoch immer auch die gleiche Gattung gemeinsam gruppiert wird, kann angenommen werden, dass das Autorsignal zwar nicht komplett herausgefiltert werden kann, aber keinen so signifikanten Einfluss auf die stilometrischen Ergebnisse hat, dass eine Gattungszuordnung nicht mehr möglich wäre. Im Folgenden wird überprüft, ob diese Beobachtung nur für einzelne Korpora gilt oder ob die Annahme allgemeingültig ist. Zudem muss beachtet werden, dass hier nur die 100 höchsten Deltawerte, die nahe an 1 liegen und damit eine sehr große Ähnlichkeit zwischen den beiden gemeinsam analysierten Texten ausdrücken, betrachtet wurden. Am Ende dieses Kapitels soll diese Beobachtung noch erweitert werden. \par 
 
+\subparagraph{Vergleichskorpus} \quad \par 
 Um die Ergebnisse besser generalisieren zu können, wird dieselbe Analyse auf für das Vergleichskorpus durchgeführt. Die \textit{same-} und  \textit{different-}Kurven liegen erneut übereinander, sodass keine klare Differenzierung möglich ist, und sind um 0 zentriert. Die \textit{different}-Kurve weist einen zweiten kleinen Peak auf. In Gegenüberstellung mit der Visualisierung der Kurve für das Fontane-Korpus, das Teil des Vergleichskorpus ist, wird ersichtlich, dass auch dort ein Peak an ähnlicher Stelle zu erkennen ist, was auf einen möglichen Einfluss von Fontanes Texten zurückzuführen ist. \par 
 
 Auch die Analyse der Z-Scores für die Gattungsmerkmale ist vergleichbar mit den Ergebnissen für das Autorenkorpus. Nicht nur die Wörter, die besonders für Lyrik und Epik sprechen, sind ähnlich oder sogar dieselben, auch die zugehörigen Werte sind kaum verändert. So ist \textit{Herz} erneut das unterdurchschnittlichste Emotionswort für Epiktexte mit einem Wert von -0,33. Ebenso ist bei den Sprechmarker \textit{singen} erneut das ausschlaggebendste Wort für Lyrik, während \textit{bitten} und \textit{erzählen} häufiger als das Mittel in Epiktexten verwendet werden. Auffällig bei letzterem Wort ist, dass es einen deutlich größeren Z-Score in Richtung der Epik aufweist als in der vorhergehenden Analyse. Ein Blick auf den Wert bei Fontane gibt aber auch hier wieder Aufschluss. Nur vier Wörter erlangen bei ihm einen positiven Z-Score, wobei drei kaum über 0 liegen. \textit{erzählen} hingegen ist ein deutlicher Ausreißer, der wiederum das gesamte Korpus zu beeinflussen scheint. \par 
@@ -463,11 +493,11 @@ Der große Anteil von Fontanes Texten hat also wie zu erwarten im Bereich der Z-
 
 Anstatt nur vereinzelte Werte zu betrachten, ist ein Überblick über verschiedene Korpora und ihre allgemeinen Ergebnisse hilfreich für eine Einschätzung der Qualität der stilometrischen Untersuchung. Aus diesem Grund soll der Anteil der richtig eingeordneten gegenübergestellten Textpaare berechnet werden, deren Cosinus-Wert über einem Cutoff-Wert von 0,35 \footnote{Dieser Wert wurde in einer anderen Projektarbeit berechnet und getestet.} liegt und die damit derselben Gattung zugeordnet werden. Für das Autoren- und das Fontanekorpus werden auf Basis des Cosinuswertes alle Dokumentpaare oberhalb des Cutoffs richtigerweise derselben Gattung ebenso wie demselben Autor zugeordnet. Wie bereits oben festgestellt, ist die Verwendung der Segmente ungeeignet für eine Deltaanalyse. Im Autorenkorpus ist der Anteil von richtig und falsch zugeordneten Gattungen fast ausgeglichen, während im Vergleichskorpus mit Fontanetexten die Zahl der falsch zugewiesenen Gattungsbezeichnungen deutlich überwiegt. Bei der Verwendung dieses Korpus mit den originalen Texten hingegen zeigt sich ein anderes Bild. Die Autorschaft wird zwar nur unzufriedenstellend erkannt, was aber keinen Einfluss auf die Beantwortbarkeit der Fragestellung mithilfe dieser Methode hat, da das Autorensignal ohnehin herausgefiltert werden soll. Die Gattungszuordnung ergibt hingegen bessere Ergebnisse. Nur ein geringfügiger Anteil der analysierten Textpaare wird einer falschen Gattung zugewiesen. \par 
 
-\begin{wrapfigure}{l}{0.65\textwidth}
-	\includegraphics[width=0.65\textwidth]{cutoffs_all.png}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{cutoffs_all.png}
 	\caption{Genauigkeitswerte der Deltazuordnung anhand eines Cutoffs von 0,35.}
 	\label{fig:deltacutoff}
-\end{wrapfigure}
+\end{figure}
 
 Obwohl diese Resultate zunächst zufriedenstellend wirken, muss der minimale Anteil der Cosinus-Werte die über dem Cutoff liegen beachtet werden \ref{deltacutoff}. Von insgesamt 9.843.834 verglichenen Dokumentpaaren im Vergleichskorpus liegen nur 2.200 Deltawerte über 0,35, wovon 50 falsch einsortiert werden. Bereits die \textit{same- und different}-Kurven vom Beginn des Kapitels haben auf diese Beobachtung hingewiesen. Ein signifikanter Großteil der Daten liegt zwischen etwa -0,2 und 0,2 und ist nur schwer einer bestimmten Gattung zuzuordnen, während wenige Werte über diesem Bereich liegen und dafür nahezu perfekt einzuordnen sind. Dadurch bietet sich die Möglichkeit, den Cutoff zu verkleinern und auf 0,2 zu setzen, was erfolgreich erprobt wurde. Beim Vergleichskorpus werden nun bereits 23.044 Textpaare richtig zugewiesen und nur 216 falsch klassifiziert. Dennoch handelt es sich um einen Anteil, der für eine Attribution im realen Anwendungsfall nicht zuverlässig genug ist. Da das Verfahren für die Gattungszuweisung allerdings dennoch in Teilen funktioniert, wäre ein weiterer Ansatzpunkt ein modifizierter Korpusaufbau. Ein ausgeglicheneres Verhältnis von Epiktexten, möglicherweise nur mit Sampleausschnitten daraus, und Gedichten könnte die Ergebnisse verbessern. Ebenso könnte es von Bedeutung sein, ein Augenmerk darauf zu legen, dass das Vorkommen von Autoren balancierter ist und nicht wie beispielsweise im Vergleichskorpus ein Autor beinahe ein Drittel des gesamten Korpus ausmacht.
 
@@ -482,10 +512,23 @@ Neben den oben aufgeführten Varianzen innerhalb des Korpusaufbaus bietet es sic
 
 
 
-
+\newpage
 
 
 \section{Bibliographie}
 \bibliographystyle{apalike}
 \bibliography{/home/teresa/Dokumente/Stilometrie}
+
+
+
+\newpage
+\section{Eigenständigkeitserklärung}
+
+Ich versichere, dass ich die Arbeit selbständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate sind kenntlich gemacht und nachgewiesen. Ferner versichere ich, dass das Thema dieser Arbeit nicht identisch ist mit dem Thema einer von mir bereits für eine andere Prüfung eingereichten Arbeit. Ich erkläre weiterhin, dass ich die Arbeit nicht bereits an einer anderen Hochschule als Prüfungsleistung eingereicht habe. \par 
+
+\vspace{50pt}
+
+
+\noindent Datum, Unterschrift
+
 \end{document}
